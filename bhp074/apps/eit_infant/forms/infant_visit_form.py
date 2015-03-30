@@ -4,7 +4,7 @@ from django import forms
 from django.db import models
 from django.contrib.admin.widgets import AdminRadioSelect, AdminRadioFieldRenderer
 
-from apps.eit_infant.choices import VISIT_INFO_SOURCE, VISIT_REASON
+from apps.eit_infant.choices import VISIT_REASON #VISIT_INFO_SOURCE, 
 from apps.eit_infant.models import InfantVisit, InfantBirth
 
 from edc.subject.consent.forms import BaseConsentedModelForm
