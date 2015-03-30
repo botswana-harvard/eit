@@ -22,11 +22,6 @@ class MaternalVisitForm (BaseConsentedModelForm):
         help_text="If 'unscheduled', information is usually reported at the next scheduled visit, but exceptions may arise",
         widget=AdminRadioSelect(renderer=AdminRadioFieldRenderer),
         )
-    info_source = forms.ChoiceField(
-        label='Source of information',
-        choices=[choice for choice in VISIT_INFO_SOURCE],
-        widget=AdminRadioSelect(renderer=AdminRadioFieldRenderer),
-        )
 
     def clean(self):
 

@@ -4,15 +4,12 @@ from edc.core.bhp_common.utils import convert_from_camel
 from edc.dashboard.subject.classes import RegisteredSubjectDashboard
 from edc.subject.registration.models import RegisteredSubject
 
-from bhp074.apps.eit_infant.models import InfantBirth
-from bhp074.apps.eit_maternal.models import MaternalConsent, MaternalVisit
-
-from bhp074.apps.eit_lab.models import MaternalRequisition, PackingList
-
+from apps.eit_infant.models import InfantBirth
+from apps.eit_lab.models import MaternalRequisition, PackingList
+from apps.eit_maternal.models import MaternalConsent, MaternalVisit
 
 
 class MaternalDashboard(RegisteredSubjectDashboard):
-
 
     view = 'maternal_dashboard'
     dashboard_name = 'Maternal Dashboard'
@@ -37,7 +34,6 @@ class MaternalDashboard(RegisteredSubjectDashboard):
         self._locator_model = None
         self._requisition_model = MaternalRequisition
 
-    #def add_to_context(self):
     def get_context_data(self, **kwargs):
         self.context = super(MaternalDashboard, self).get_context_data(**kwargs)
         self.context.update(
@@ -109,7 +105,7 @@ class MaternalDashboard(RegisteredSubjectDashboard):
 
     def get_packing_list_model(self):
         return PackingList
-# 
+
     def get_infants(self):
         """Returns a list of infants identifiers asssociated with the maternal subject_identifier by querying the Birth model or RegisteredSubject."""
         infants = OrderedDict()

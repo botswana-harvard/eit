@@ -22,7 +22,7 @@ site_lab_profiles.autodiscover()
 from dajaxice.core import dajaxice_autodiscover, dajaxice_config
 dajaxice_autodiscover()
 
-from bhp074.apps.eit.eit_app_configuration.classes import EitAppConfiguration
+from apps.eit.eit_app_configuration.classes import EitAppConfiguration
 # 
 EitAppConfiguration().prepare()
 site_visit_schedules.autodiscover()

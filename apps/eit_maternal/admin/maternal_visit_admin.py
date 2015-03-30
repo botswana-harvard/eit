@@ -4,7 +4,7 @@ from collections import OrderedDict
 from edc.export.actions import export_as_csv_action
 from edc.subject.appointment.admin import BaseAppointmentModelAdmin
 
-from bhp074.apps.eit_lab.models import MaternalRequisition
+from apps.eit_lab.models import MaternalRequisition
 
 from ..models import MaternalVisit
 from ..forms import MaternalVisitForm
@@ -21,7 +21,7 @@ class MaternalVisitAdmin(BaseAppointmentModelAdmin):
         'appointment',
         'report_datetime',
         'reason',
-        "info_source",
+#         "info_source",
         'created',
         'user_created',
 
@@ -30,7 +30,7 @@ class MaternalVisitAdmin(BaseAppointmentModelAdmin):
     list_filter = (
         'report_datetime',
         'reason',
-        'appointment__appt_status',
+#         'appointment__appt_status',
         'appointment__visit_definition__code',
         )
 
@@ -44,12 +44,12 @@ class MaternalVisitAdmin(BaseAppointmentModelAdmin):
     fields = (
         "appointment",
         "report_datetime",
-        "info_source",
-        "info_source_other",
+#         "info_source",
+#         "info_source_other",
         "reason",
         "reason_missed",
-        'survival_status',
-        'date_last_alive',
+#         'survival_status',
+#         'date_last_alive',
         "comments",
         )
 

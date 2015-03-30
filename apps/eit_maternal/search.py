@@ -1,6 +1,7 @@
 from django.db.models import Q
 
 from edc.dashboard.search.classes import BaseSearchByWord
+
 from .models import MaternalConsent
 
 

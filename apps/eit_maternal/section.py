@@ -1,4 +1,5 @@
 from edc.dashboard.section.classes import BaseSectionView, site_sections
+
 from .search import MaternalSearchByWord
 from .models import MaternalConsent
 

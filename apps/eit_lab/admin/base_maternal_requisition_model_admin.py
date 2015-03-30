@@ -1,8 +1,8 @@
 from edc.lab.lab_requisition.admin import BaseRequisitionModelAdmin
 
-from bhp074.apps.eit_maternal.models import MaternalVisit
+from apps.eit_maternal.models import MaternalVisit
 
-from bhp074.apps.eit_lab.models import Panel
+from apps.eit_lab.models import Panel
 
 
 class BaseMaternalRequisitionModelAdmin (BaseRequisitionModelAdmin):

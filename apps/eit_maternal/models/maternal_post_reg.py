@@ -7,8 +7,6 @@ from edc.subject.registration.models import RegisteredSubject
 from edc.subject.registration.models import BaseRegisteredSubjectModel
 from edc.core.identifier.classes import InfantIdentifier
 
-# from .maternal_base_registered_subject_model import MaternalBaseRegisteredSubjectModel
-
 
 class MaternalPostReg(BaseRegisteredSubjectModel):
 
@@ -34,17 +32,6 @@ class MaternalPostReg(BaseRegisteredSubjectModel):
 
     def get_registration_datetime(self):
         return self.reg_datetime
-# 
-#         # base the date on the infant dob which implies the infant must exist
-#         if RegisteredSubject.objects.filter(relative_identifier=self.registered_subject.subject_identifier):
-#             rs = RegisteredSubject.objects.filter(relative_identifier=self.registered_subject.subject_identifier).order_by('dob')
-#             if rs[0].dob:
-#                 infant_dob = rs[0].dob
-#             else:
-#                 raise AttributeError('{0} model method \'get_registration_datetime\' cannot determine the dob of the first infant for this {0}'.format(self, self.registered_subject))
-#         else:
-#             raise AttributeError('{0} model method \'get_registration_datetime\' cannot find an infant for this {0}'.format(self, self.registered_subject))
-#         return datetime.combine(infant_dob, time(0, 0))
 
     def post_save_register_infants(self, created):
         """Registers infant(s) using the bhp_identifier class which allocates identifiers and creates registered_subject instances.

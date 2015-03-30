@@ -1,5 +1,5 @@
 from edc.lab.lab_requisition.admin import BaseRequisitionModelAdmin
-from bhp074.apps.eit_infant.models import InfantVisit
+from apps.eit_infant.models import InfantVisit
 
 
 class BaseInfantRequisitionModelAdmin (BaseRequisitionModelAdmin):

@@ -4,7 +4,7 @@ from edc.lab.lab_profile.models import BaseProfile
 
 # from ..managers import ProfileManager
 
-from bhp074.apps.eit_lab.models import AliquotType
+from apps.eit_lab.models import AliquotType
 
 
 class AliquotProfile(BaseProfile):

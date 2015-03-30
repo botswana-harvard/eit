@@ -4,6 +4,7 @@ from django.dispatch import receiver
 from .maternal_post_reg import MaternalPostReg
 from .maternal_consent import MaternalConsent
 
+
 @receiver(post_save, weak=False, dispatch_uid='post_save_register_infants')
 def post_save_register_infants(sender, instance, raw, created, using, **kwarg):
     if isinstance(instance, MaternalPostReg):

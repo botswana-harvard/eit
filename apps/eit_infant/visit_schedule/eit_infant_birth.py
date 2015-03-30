@@ -3,7 +3,7 @@ from collections import OrderedDict
 from edc.subject.visit_schedule.classes import VisitScheduleConfiguration, site_visit_schedules, EntryTuple, MembershipFormTuple, ScheduleGroupTuple, RequisitionPanelTuple
 from edc.constants import REQUIRED, NOT_REQUIRED, ADDITIONAL, NOT_ADDITIONAL
 
-from bhp074.apps.eit_infant.models import InfantVisit, InfantBirth
+from apps.eit_infant.models import InfantVisit, InfantBirth
 
 #from ...eit_maternal.models import MaternalConsent
 

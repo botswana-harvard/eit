@@ -3,15 +3,10 @@ from datetime import timedelta, date, datetime
 from edc.dashboard.subject.classes import RegisteredSubjectDashboard
 from edc.subject.registration.models import RegisteredSubject
 
-from bhp074.apps.eit_infant.models import InfantBirth, InfantVisit
+from apps.eit_infant.models import InfantBirth, InfantVisit
 
-# from bhp074.apps.eit_infant.models import InfantBirth, InfantVisit
-# from apps.mpepu_infant_rando.models import InfantRando
-from bhp074.apps.eit_maternal.models import MaternalConsent#, MaternalLabDel, MaternalLocator
-from bhp074.apps.eit_lab.models import InfantRequisition, PackingList, Panel
-# from bhp074.apps.eit_dashboard import DashboardMixin
-
-# from edc.lab.lab_clinic_api.models import Panel
+from apps.eit_maternal.models import MaternalConsent
+from apps.eit_lab.models import InfantRequisition, PackingList, Panel
 
 
 class InfantDashboard(RegisteredSubjectDashboard):
@@ -33,15 +28,11 @@ class InfantDashboard(RegisteredSubjectDashboard):
     def __init__(self, *args, **kwargs):
         super(InfantDashboard, self).__init__(*args, **kwargs)
         self._infant_birth = None
-#         self._maternal_identifier = None
         self.dashboard_type_list = ['infant']
         self.dashboard_models['infant_birth'] = InfantBirth
         self.membership_form_category= ['infant_birth_record']
         self.visit_model = InfantVisit
-#         kwargs.update({'dashboard_models': {'infant_birth': InfantBirth}, 'membership_form_category': ['infant_birth_record']})
-#         self.extra_url_context = ""
         self._locator_model = None
-#         self._requisition_model = None
         self._requisition_model = InfantRequisition
 
     def get_context_data(self, **kwargs):
@@ -52,12 +43,9 @@ class InfantDashboard(RegisteredSubjectDashboard):
             maternal_dashboard_url=self.get_maternal_dashboard_url(),
             title='Infant Dashboard',
             delivery_datetime=self.get_delivery_datetime(),
-#             stratum=self.get_feeding_stratum(),
             infant_birth=self.birth,
             delivery_date=self.get_delivery_date(),
             maternal_consent=self.get_maternal_consent(),
-#             days_alive=self.get_days_alive(),
-#             panels=panels,
             local_results=self.render_labs()
         )
         return self.context
@@ -82,8 +70,6 @@ class InfantDashboard(RegisteredSubjectDashboard):
         self._subject_identifier = None
         if self.birth:
             self._subject_identifier=self.birth.registered_subject.subject_identifier
-#         elif self._registered_subject:
-#             self._subject_identifier = self._registered_subject.subject_identifier
         return self._subject_identifier
 
     @property
@@ -122,57 +108,18 @@ class InfantDashboard(RegisteredSubjectDashboard):
     def get_visit_model(self):
         return InfantVisit
 
-#     def get_locator_model(self):
-#         return MaternalLocator
-# 
-#     def get_locator_scheduled_visit_code(self):
-#         """ Returns visit where the locator is scheduled, TODO: maybe search visit definition for this?."""
-#         return '1000M'
-
-#     @RegisteredSubjectDashboard.locator_model.getter
-#     def locator_model(self):
-#         return self.get_locator_model()
-
-#     def get_packing_list_model(self):
-#         return PackingList
-
-#     @property
-#     def maternal_identifier:
-        
-
     def get_subject_identifier(self):
         return self.subject_identifier
-
-#     def set_maternal_identifier(self):
-#         self._maternal_identifier = self.get_registered_subject().relative_identifier
-# 
-#     def get_maternal_identifier(self):
-#         if not self._maternal_identifier:
-#             self.set_maternal_identifier()
-#         return self._maternal_identifier
-# 
-# #     def get_maternal_locator(self):
-# #         return MaternalLocator.objects.get(registered_subject__subject_identifier=self.get_maternal_identifier())
 
     def get_maternal_consent(self):
         consent = MaternalConsent.objects.get(subject_identifier=self.registered_subject.relative_identifier)
         return consent
 
-#     def get_maternal_lab_del(self):
-#         return MaternalLabDel.objects.get(maternal_visit__appointment__registered_subject__subject_identifier=self.get_maternal_identifier())
-
-#     def set_infant_birth(self):
-#         if InfantBirth.objects.filter(registered_subject__subject_identifier__exact=self.get_subject_identifier()):
-#             self._infant_birth = InfantBirth.objects.get(registered_subject__subject_identifier__exact=self.get_subject_identifier())
-#         else:
-#             self._infant_birth = InfantBirth.objects.none()
-#  
     def get_infant_birth(self):
         return self.birth
 
     def get_delivery_date(self):
         return date.today()
-#         return self.get_maternal_lab_del().delivery_datetime.date()
 
     def get_days_alive(self):
         days_alive = None

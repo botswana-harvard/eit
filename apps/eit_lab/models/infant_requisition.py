@@ -4,14 +4,14 @@ from django.db import models
 from edc.audit.audit_trail import AuditTrail
 from edc.lab.lab_requisition.models import BaseClinicRequisition
 
-from bhp074.apps.eit_infant.models import InfantVisit
+from apps.eit_infant.models import InfantVisit
+from apps.eit_lab.managers import RequisitionManager
 
-# from bhp074.apps.eit_lab.models import AliquotType
 from .packing_list import PackingList
 from .panel import Panel
 from .aliquot_type import AliquotType
 
-from bhp074.apps.eit_lab.managers import RequisitionManager
+
 
 
 class InfantRequisition(BaseClinicRequisition):

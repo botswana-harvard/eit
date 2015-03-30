@@ -9,9 +9,6 @@ from ..models import MaternalConsent
 from ..forms import MaternalConsentForm
 
 
-
-
-
 class MaternalConsentAdmin(BaseConsentModelAdmin):
 
     form = MaternalConsentForm
