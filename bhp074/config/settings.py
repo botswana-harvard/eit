@@ -29,15 +29,15 @@ PROJECT_DIR = Path(__file__).ancestor(2)
 MEDIA_ROOT = PROJECT_DIR.child('media')
 STATIC_ROOT = PROJECT_DIR.child('static')
 TEMPLATE_DIRS = (
-    '/Users/fchilisa/source/edc_project/edc/templates',
-#     '/home/django/source/edc_project/edc/templates',
+#     '/Users/fchilisa/source/edc_project/edc/templates',
+    '/home/django/source/edc_project/edc/templates',
     )
 STATICFILES_DIRS = ()
 CONFIG_DIR = PROJECT_DIR.child('bhp074')
 
 #Key Path
-KEY_PATH = '/Users/fchilisa/source/bhp074_project/bhp074/keys'
-# KEY_PATH = '/home/django/source/bhp074_project/bhp074/keys'
+# KEY_PATH = '/Users/fchilisa/source/bhp074_project/bhp074/keys'
+KEY_PATH = '/home/django/source/bhp074_project/bhp074/keys'
 
 MAP_DIR = STATIC_ROOT.child('img')
 
@@ -77,7 +77,7 @@ else:
             'OPTIONS': {
                 'init_command': 'SET storage_engine=INNODB',
             },
-            'NAME': 'bhp074_eit',
+            'NAME': 'bhp074',
             'USER': 'root',
             'PASSWORD': 'cc3721b',
             'HOST': '',
@@ -88,10 +88,10 @@ else:
             'OPTIONS': {
                 'init_command': 'SET storage_engine=INNODB',
             },
-            'NAME': 'bhp056_lab',
+            'NAME': 'lab',
             'USER': 'root',
             'PASSWORD': 'cc3721b',
-            'HOST': '',
+            'HOST': 'bhhrl',
             'PORT': '3306',
         },
     }

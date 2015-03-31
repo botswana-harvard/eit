@@ -2,7 +2,7 @@
 import os
 import sys
 
-SOURCE_DIR = os.path.expanduser('~/source')
+SOURCE_DIR = '/home/django/source'#os.path.expanduser('~/source')
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
