@@ -21,7 +21,7 @@ class MaternalDashboard(RegisteredSubjectDashboard):
         RegisteredSubjectDashboard.urlpattern_options,
         dashboard_model=RegisteredSubjectDashboard.urlpattern_options['dashboard_model'] + '|maternal_consent|maternal_eligible_postnatal',
         dashboard_type='maternal',
-        appointment_code='|2000M')
+        appointment_code='|1000M')
 
     template_name = 'maternal_dashboard.html'
 

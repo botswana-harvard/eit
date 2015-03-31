@@ -3,9 +3,10 @@ from django.db import models
 from django.core.urlresolvers import reverse
 
 from edc.audit.audit_trail import AuditTrail
-from edc.subject.registration.models import RegisteredSubject
-from edc.subject.registration.models import BaseRegisteredSubjectModel
+from edc.base.model.validators import datetime_not_future
 from edc.core.identifier.classes import InfantIdentifier
+from edc.subject.registration.models import BaseRegisteredSubjectModel
+from edc.subject.registration.models import RegisteredSubject
 
 
 class MaternalPostReg(BaseRegisteredSubjectModel):
@@ -13,6 +14,13 @@ class MaternalPostReg(BaseRegisteredSubjectModel):
     """ Post-partum registration """
 
     reg_datetime = models.DateTimeField()
+    
+    delivery_datetime = models.DateTimeField(
+        verbose_name="Date and time of delivery :",
+        help_text="If TIME unknown, estimate",
+        validators=[
+            datetime_not_future, ],
+        )
 
     live_infants_to_register = models.IntegerField(
         verbose_name="How many babies are registering to the study? ",

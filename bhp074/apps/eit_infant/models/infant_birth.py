@@ -13,7 +13,7 @@ from edc.core.crypto_fields.fields import EncryptedFirstnameField
 from edc.subject.consent.classes import ConsentHelper
 from edc.subject.registration.models import BaseRegisteredSubjectModel
 
-from apps.eit_infant.models import InfantVisit
+from ..models import InfantVisit
 
 
 class InfantBirth(BaseRegisteredSubjectModel):

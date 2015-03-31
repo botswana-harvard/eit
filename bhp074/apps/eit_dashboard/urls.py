@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.contrib.auth.decorators import login_required
 
-from bhp074.apps.eit_dashboard.classes import MaternalDashboard, InfantDashboard
+from apps.eit_dashboard.classes import MaternalDashboard, InfantDashboard
 
 
 urlpatterns = []

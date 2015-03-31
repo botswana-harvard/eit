@@ -21,7 +21,7 @@ class EitMaternalPostNatalVisitSchedule(VisitScheduleConfiguration):
 
     visit_definitions = OrderedDict()
 
-    visit_definitions['2000M'] = {
+    visit_definitions['1000M'] = {
             'title': 'Maternal Enrolment Visit',
             'time_point': 0,
             'base_interval': 0,

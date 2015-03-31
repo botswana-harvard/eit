@@ -21,7 +21,7 @@ class InfantDashboard(RegisteredSubjectDashboard):
         RegisteredSubjectDashboard.urlpattern_options,
         dashboard_model=RegisteredSubjectDashboard.urlpattern_options['dashboard_model'] + '|infant_birth_record',
         dashboard_type='infant',
-        appointment_code='1000|1010|2001|2002|2003|2004|2006|2008|2012|2024|2036|2048|2060|2072|2084|2096|2108|2120|2132|2144|2156|2168|2180|2192')
+        appointment_code='1000|1001|1002|1003|1004|1006|1008|1012|1024|1036|1048|1060|1072|1084|1096|1108|1120|1132|1144|1156|1168|1180|1192')
 
     template_name = 'infant_dashboard.html'
 
