@@ -48,6 +48,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
  
@@ -76,6 +77,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
 
@@ -103,6 +105,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -130,6 +133,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -156,6 +160,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -182,6 +187,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -208,6 +214,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -234,6 +241,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -260,6 +268,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -286,6 +295,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -312,6 +322,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -338,6 +349,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -364,6 +376,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -390,6 +403,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -416,6 +430,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -442,6 +457,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -468,6 +484,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -494,6 +511,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -520,6 +538,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -546,6 +565,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -572,6 +592,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -598,6 +619,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -624,6 +646,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -650,6 +673,7 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
