@@ -27,7 +27,7 @@ from apps.eit.eit_app_configuration.classes import EitAppConfiguration
 EitAppConfiguration().prepare()
 site_visit_schedules.autodiscover()
 site_visit_schedules.build_all()
-# site_rule_groups.autodiscover()
+site_rule_groups.autodiscover()
 # site_lab_tracker.autodiscover()
 # data_manager.prepare()
 site_sections.autodiscover()

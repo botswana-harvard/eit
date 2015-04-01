@@ -21,6 +21,12 @@ class MaternalConsentAdmin(BaseConsentModelAdmin):
                      'study_questions', 'assessment_score', 'consent_copy', 'identity_type',
                      'comment', 'is_dob_estimated', 'gender']:
             self.fields.remove(fld)
+        for fld in ["cohort",]:
+            self.fields.append(fld)
+
+    radio_fields = {
+        "cohort": admin.VERTICAL,
+        }
 
     def save_model(self, request, obj, form, change):
         """Saves and randomizes."""
@@ -34,6 +40,8 @@ class MaternalConsentAdmin(BaseConsentModelAdmin):
             obj.identity_type = 'OMANG'
             obj.gender = 'F'
         return super(MaternalConsentAdmin, self).save_model(request, obj, form, change)
+
+
 
 #     actions = [export_as_csv_action(description="CSV Export of Maternal Consent",
 #         fields=[],

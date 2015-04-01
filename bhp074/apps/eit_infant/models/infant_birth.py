@@ -41,28 +41,14 @@ class InfantBirth(BaseRegisteredSubjectModel):
         verbose_name="Infant Red Cap Screening Bid",
         max_length=50,
         db_index=True,
-        null=True,
-        blank=True,
-        )
-    infant_redcap_sbid2 = models.CharField(
-        verbose_name="Infant Red Cap Screening Bid 2",
-        max_length=50,
-        db_index=True,
-        null=True,
-        blank=True,
-        )
-    infant_redcap_ebid = models.CharField(
-        verbose_name="Infant RedCap Enrollment Bid ",
-        max_length=50,
-        db_index=True,
-        null=True,
-        blank=True,
+        unique=True,
         )
     objects = models.Manager()
     history = AuditTrail()
 
-#     def get_subject_identifier(self):
-#         return self.registered_subject.subject_identifier
+    @property
+    def maternal_identifier(self):
+        pass
 
     def get_registration_datetime(self): 
         return datetime.today()

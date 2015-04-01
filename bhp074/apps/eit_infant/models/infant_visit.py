@@ -13,7 +13,7 @@ from edc.subject.visit_tracking.models.base_visit_tracking import BaseVisitTrack
 from edc.subject.visit_tracking.settings import VISIT_REASON_NO_FOLLOW_UP_CHOICES, VISIT_REASON_FOLLOW_UP_CHOICES
 
 from apps.eit.choices import INFO_PROVIDER
-from apps.eit_infant.choices import INFANT_VISIT_STUDY_STATUS, ALIVE_DEAD_UNKNOWN, VISIT_REASON
+from apps.eit_infant.choices import VISIT_REASON
 # from bhp074.apps.eit_lab.models.panel import Panel
 
 
