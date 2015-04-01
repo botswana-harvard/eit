@@ -31,8 +31,6 @@ class InfantBirthAdmin(RegisteredSubjectModelAdmin):
         "dob",
         "gender",
         "infant_redcap_sbid",
-        "infant_redcap_sbid2",
-        "infant_redcap_ebid",
     )
 
     list_display = ('registered_subject', 'first_name', 'initials', 'dob', 'gender', 'created', 'modified')

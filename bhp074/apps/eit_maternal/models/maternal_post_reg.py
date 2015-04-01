@@ -4,17 +4,20 @@ from django.core.urlresolvers import reverse
 
 from edc.audit.audit_trail import AuditTrail
 from edc.base.model.validators import datetime_not_future
+from edc.core.identifier.classes import CheckDigit
 from edc.core.identifier.classes import InfantIdentifier
 from edc.subject.registration.models import BaseRegisteredSubjectModel
 from edc.subject.registration.models import RegisteredSubject
+
+from .maternal_consent import MaternalConsent
 
 
 class MaternalPostReg(BaseRegisteredSubjectModel):
 
     """ Post-partum registration """
 
-    reg_datetime = models.DateTimeField()
-    
+    reg_datetime = models.DateTimeField(default=datetime.today())
+
     delivery_datetime = models.DateTimeField(
         verbose_name="Date and time of delivery :",
         help_text="If TIME unknown, estimate",
@@ -27,36 +30,43 @@ class MaternalPostReg(BaseRegisteredSubjectModel):
         help_text="",
         )
 
-    maternal_redcap_bid = models.CharField(
-        verbose_name="Maternal RedCap Bid",
-        max_length=50,
-        db_index=True,
-#         unique=True,
-        null=True,
-        blank=True,
-        )
-
     history = AuditTrail()
 
     def get_registration_datetime(self):
         return self.reg_datetime
 
-    def post_save_register_infants(self, created):
+    def post_save_register_infants(self, created, **kwargs):
         """Registers infant(s) using the bhp_identifier class which allocates identifiers and creates registered_subject instances.
 
         Called on the post_save signal"""
-        maternal_id = RegisteredSubject.objects.get(subject_identifier=self.registered_subject.subject_identifier)
+        protocol="074"
+        i_indicator = "1"
+        check = CheckDigit()
+        consent = MaternalConsent.objects.get(subject_identifier=self.registered_subject.subject_identifier)
         if created:
-            if self.live_infants_to_register > 0:
-                for infant_order in range(0, self.live_infants_to_register):
-                    infant_identifier = InfantIdentifier(
-                        maternal_identifier=maternal_id.subject_identifier,
-                        study_site=maternal_id.study_site,
-                        birth_order=infant_order,
-                        live_infants=self.live_infants_to_register,
-                        live_infants_to_register=self.live_infants_to_register,
-                        user=self.user_created)
-                    infant_identifier.get_identifier()
+            seq = consent.subject_identifier[6:-4]
+            check_digit = check.calculate(int(protocol+str(seq)+i_indicator), modulus=7)
+            if consent.cohort=='antepartum':
+                prefix = 'A'
+            elif consent.cohort=='peripartum':
+                prefix = "P"
+            else:
+                prefix = "C"
+            new_identifier = protocol+"-"+prefix+"-"+str(seq)+"-"+i_indicator+"-"+str(check_digit)
+
+            RegisteredSubject.objects.create(
+                subject_identifier=new_identifier,
+                registration_datetime=datetime.now(),
+                subject_type='infant',
+                user_created=self.user_created,
+                created=datetime.now(),
+                first_name='',
+                initials='',
+                registration_status='registered',
+                relative_identifier=self.registered_subject.subject_identifier,
+                study_site=consent.study_site)
+
+        return new_identifier
 
     def __unicode__(self):
         return "{0} {1}".format(self.registered_subject, self.reg_datetime)

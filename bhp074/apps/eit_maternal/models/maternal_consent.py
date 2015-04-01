@@ -9,6 +9,8 @@ from edc.subject.consent.mixins import ReviewAndUnderstandingFieldsMixin
 
 from .base_maternal_consent import BaseMaternalConsent
 
+from ..choices import COHORT
+
 
 class MaternalConsent(BaseMaternalConsent):
 
@@ -21,6 +23,49 @@ class MaternalConsent(BaseMaternalConsent):
         null=True,
         help_text='')
 
+    cohort = models.CharField(
+        verbose_name="Cohort",
+        max_length=15,
+        choices=COHORT,
+        )
+
+    def save_new_consent(self, using=None, subject_identifier=None):
+        from edc.core.identifier.models import SubjectIdentifier
+        from edc.core.identifier.classes import CheckDigit
+
+        check = CheckDigit()
+        protocol = '074'
+        m_indicator = "2"
+        prefix = 'M'
+
+        if self.cohort=='antepartum':
+            cohort_id=10
+            prev_id = SubjectIdentifier.objects.filter(device_id=cohort_id).order_by('-sequence_number')
+            if prev_id:
+                seq = prev_id[0].sequence_number+1
+            else:
+                seq = 101
+        elif self.cohort=='peripartum':
+            cohort_id=20
+            prev_id = SubjectIdentifier.objects.filter(device_id=cohort_id).order_by('-sequence_number')
+            if prev_id:
+                seq = prev_id[0].sequence_number+1
+            else:
+                seq = 201
+        else:
+            prefix='C'
+            cohort_id=30
+            prev_id = SubjectIdentifier.objects.filter(device_id=cohort_id).order_by('-sequence_number')
+            if prev_id:
+                seq = prev_id[0].sequence_number+1
+            else:
+                seq = 301
+        check_digit = check.calculate(int(protocol+str(seq)+m_indicator), modulus=7)
+        subject_identifier = protocol+"-"+prefix+"-"+str(seq)+"-"+m_indicator+"-"+str(check_digit)
+        identifier = SubjectIdentifier(padding=3, sequence_number=seq, identifier=subject_identifier, device_id=cohort_id,sequence_model_name='maternalconsent', sequence_app_label='eit_maternal')
+        identifier.save(bypass=True)
+        return subject_identifier
+
     def get_registered_subject(self):
         return self.registered_subject
 
@@ -30,28 +75,6 @@ class MaternalConsent(BaseMaternalConsent):
             if subject:
                 self.registered_subject=subject[0]
                 self.save(using=using)
-#                 
-#     def get_subject_type(self):
-#         return 'maternal'
-# 
-#     def get_subject_identifier(self):
-#         return self.subject_identifier
-# 
-#     @property
-#     def is_hiv_positive(self):
-#         return 'Yes'
-# 
-#     def get_result_value(self, attr=None):
-#         """Returns a result value for given attr name for the lab_tracker."""
-#         retval = None
-#         if not attr in dir(self):
-#             raise TypeError('Attribute {0} does not exist in model {1}'.format(attr, self._meta.object_name))
-#         if attr == 'is_hiv_positive':
-#             if self.is_hiv_positive.lower() == 'yes':
-#                 retval = 'POS'
-#             else:
-#                 retval = 'NEG'
-#         return retval
 
     def dispatch_container_lookup(self):
         return None
@@ -59,19 +82,10 @@ class MaternalConsent(BaseMaternalConsent):
     @classmethod
     def get_consent_update_model(self):
         return models.get_model('bhp_consent', 'MaternalConsentUpdate')
-    
+
     def get_absolute_url(self):
         return reverse('admin:mpepu_maternal_maternalconsent_change', args=(self.id,))
 
     class Meta:
         verbose_name = "Maternal Consent"
         app_label = 'eit_maternal'
-
-
-# for field in IdentityFieldsMixin._meta.fields:
-#     if field.name not in [fld.name for fld in MaternalConsent._meta.fields]:
-#         field.contribute_to_class(MaternalConsent, field.name)
-        
-# for field in ReviewAndUnderstandingFieldsMixin._meta.fields:
-#     if field.name not in [fld.name for fld in MaternalConsent._meta.fields]:
-#         field.contribute_to_class(MaternalConsent, field.name)
