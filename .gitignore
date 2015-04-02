@@ -1,4 +1,6 @@
-*.py[cod]
+*.pyc
+*.pyd
+*.pyo
 *.sh
 *.sql
 .project
