@@ -1,0 +1,17 @@
+*.pyc
+*.pyd
+*.pyo
+*.sh
+*.sql
+.project
+.pydevproject
+.settings
+keys
+south.log
+*.bz2
+.DS_Store
+bhp074/edc
+bhp074/lis
+bhp074/templates
+.ropeproject/
+revision_alter.txt
