@@ -5,7 +5,7 @@ from edc.subject.registration.models import RegisteredSubject
 
 from apps.eit_infant.models import InfantBirth, InfantVisit
 
-from apps.eit_maternal.models import MaternalConsent
+from apps.eit_maternal.models import MaternalConsent, MaternalPostReg
 from apps.eit_lab.models import InfantRequisition, PackingList, Panel
 
 
@@ -102,8 +102,10 @@ class InfantDashboard(RegisteredSubjectDashboard):
 
     def get_delivery_datetime(self):
         # get delivery date if delivered
-        return datetime.today()
-#         return self.get_maternal_lab_del().delivery_datetime
+        consent = self.get_maternal_consent()
+        post_reg = MaternalPostReg.objects.filter(registered_subject__subject_identifier=consent.subject_identifier)
+        if post_reg:
+            return post_reg[0].delivery_datetime
 
     def get_visit_model(self):
         return InfantVisit
@@ -119,7 +121,10 @@ class InfantDashboard(RegisteredSubjectDashboard):
         return self.birth
 
     def get_delivery_date(self):
-        return date.today()
+        consent = self.get_maternal_consent()
+        post_reg = MaternalPostReg.objects.filter(registered_subject__subject_identifier=consent.subject_identifier)
+        if post_reg:
+            return post_reg[0].delivery_datetime.date()
 
     def get_days_alive(self):
         days_alive = None
