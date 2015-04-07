@@ -39,6 +39,7 @@ class EitMaternalPostNatalVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(100L, u'eit_lab', u'maternalrequisition', 'Hematology (ARV)', 'TEST', 'WB', REQUIRED, NOT_ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'maternalrequisition', 'CD4 (ARV)', 'TEST', 'WB', REQUIRED, NOT_ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'maternalrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', REQUIRED, NOT_ADDITIONAL),
+                RequisitionPanelTuple(400L, u'eit_lab', u'maternalrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', REQUIRED, NOT_ADDITIONAL),
                 ),
             'entries': (
             )}
