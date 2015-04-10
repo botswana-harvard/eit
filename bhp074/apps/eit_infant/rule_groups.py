@@ -21,14 +21,22 @@ def func_peripartum_hema(visit_instance):
             return True
     return False
 
+def func_peripartum_pbmc(visit_instance):
+
+    visit=['1000', '1001', '1002', ]
+
+    maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
+
+    if visit_instance.appointment.visit_definition.code in visit:
+        if maternal_id.cohort == 'peripartum':
+            return True
+    return False
+
 def func_peripartum_chem(visit_instance):
 
     visit=['1000', '1004', '1144', '1192']
 
-#     maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
-
     if visit_instance.appointment.visit_definition.code in visit:
-#         if maternal_id.cohort == 'peripartum':
         return True
     return False
 
@@ -47,10 +55,7 @@ def func_peripartum_pcr(visit_instance):
 
     visit=['1000', '1084']
 
-#     maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
-
     if visit_instance.appointment.visit_definition.code in visit:
-#         if maternal_id.cohort == 'peripartum':
         return True
     return False
 
@@ -67,7 +72,7 @@ def func_peripartum_cd4(visit_instance):
 
 def func_antepartum_hema(visit_instance):
 
-    visit=['1000', '1002','1004', '1024', '1048', '1096','1144', '1192']
+    visit=['1000','1004', '1024', '1048', '1096','1144', '1192']
 
     maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
 
@@ -76,6 +81,16 @@ def func_antepartum_hema(visit_instance):
             return True
     return False
 
+def func_antepartum_pbmc(visit_instance):
+
+    visit=['1000', '1001', '1002', '1004', '1008', '1012', '1024', '1048', '1072', '1084', '1096', '1108' , '1120', '1132', '1156', '1192']
+
+    maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
+
+    if visit_instance.appointment.visit_definition.code in visit:
+        if maternal_id.cohort == 'antepartum':
+            return True
+    return False
 
 def func_antepartum_vl(visit_instance):
 
@@ -91,6 +106,17 @@ def func_antepartum_vl(visit_instance):
 def func_antepartum_cd4(visit_instance):
 
     visit=['1000', '1004', '1012','1024', '1048', '1072','1084', '1096', '1108', '1120', '1132', '1144', '1156', '1168', '1180','1192']
+
+    maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
+
+    if visit_instance.appointment.visit_definition.code in visit:
+        if maternal_id.cohort == 'antepartum':
+            return True
+    return False
+
+def func_antepartum_pk(visit_instance):
+
+    visit=['1001', '1002', ]
 
     maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
 
@@ -137,15 +163,24 @@ class PeripartumRuleGroup(RuleGroup):
             alternative='not_required'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['DNA PCR', ], )
-    
+
     """Ensures a CD4 blood draw requisition for the right visits"""
     peri_cd4 = RequisitionRule(
         logic=Logic(
-            predicate=func_peripartum_pcr,
+            predicate=func_peripartum_cd4,
             consequence='new',
             alternative='not_required'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['CD4 (ARV)', ], )
+
+    """Ensures a PBMC blood draw requisition for the right visits"""
+    peri_pbmc = RequisitionRule(
+        logic=Logic(
+            predicate=func_peripartum_pbmc,
+            consequence='new',
+            alternative='not_required'),
+        target_model=[('eit_lab', 'infantrequisition')],
+        target_requisition_panels=['PBMC Plasma (STORE ONLY)', ], )
 
     class Meta:
         app_label = 'eit_infant'
@@ -173,15 +208,33 @@ class AntepartumRuleGroup(RuleGroup):
             alternative='not_required'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['Viral Load', ], )
-    
+
     """Ensures a CD4 blood draw requisition for the right visits"""
-    peri_cd4 = RequisitionRule(
+    ante_cd4 = RequisitionRule(
         logic=Logic(
-            predicate=func_peripartum_pcr,
+            predicate=func_antepartum_cd4,
             consequence='new',
             alternative='not_required'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['CD4 (ARV)', ], )
+
+    """Ensures a PBMC blood draw requisition for the right visits"""
+    ante_pbmc = RequisitionRule(
+        logic=Logic(
+            predicate=func_antepartum_pbmc,
+            consequence='new',
+            alternative='not_required'),
+        target_model=[('eit_lab', 'infantrequisition')],
+        target_requisition_panels=['PBMC Plasma (STORE ONLY)', ], )
+
+    """Ensures a PK blood draw requisition for the right visits"""
+    ante_pk = RequisitionRule(
+        logic=Logic(
+            predicate=func_antepartum_pk,
+            consequence='new',
+            alternative='not_required'),
+        target_model=[('eit_lab', 'infantrequisition')],
+        target_requisition_panels=['Pharmacokinetics', ], )
 
     class Meta:
         app_label = 'eit_infant'

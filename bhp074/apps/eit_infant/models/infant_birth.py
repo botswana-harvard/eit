@@ -40,8 +40,8 @@ class InfantBirth(BaseRegisteredSubjectModel):
     infant_redcap_sbid = models.CharField(
         verbose_name="Infant Red Cap Screening Bid",
         max_length=50,
-        db_index=True,
-        unique=True,
+        blank=True,
+        null=True,
         )
     objects = models.Manager()
     history = AuditTrail()
