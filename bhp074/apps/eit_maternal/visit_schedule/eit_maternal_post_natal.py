@@ -36,7 +36,7 @@ class EitMaternalPostNatalVisitSchedule(VisitScheduleConfiguration):
             'instructions': 'As of 2012-11-26, submit requisition for Viral Load (storage only) instead of PHS Ultrasensitive Viral Load (<50)',
             'requisitions': (
                 #(entry_order, app_label, model_name, panel.name, panel.edc_name, panel.panel_type, aliquot_type)
-                RequisitionPanelTuple(100L, u'eit_lab', u'maternalrequisition', 'Hematology (ARV)', 'TEST', 'WB', REQUIRED, NOT_ADDITIONAL),
+                RequisitionPanelTuple(100L, u'eit_lab', u'maternalrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'maternalrequisition', 'CD4 (ARV)', 'TEST', 'WB', REQUIRED, NOT_ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'maternalrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', REQUIRED, NOT_ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'maternalrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', REQUIRED, NOT_ADDITIONAL),
