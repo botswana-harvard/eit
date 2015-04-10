@@ -23,7 +23,7 @@ def func_peripartum_hema(visit_instance):
 
 def func_peripartum_pbmc(visit_instance):
 
-    visit=['1000', '1001', '1002', ]
+    visit=['1000', '1001', '1002', '1004', '1008', '1012', '1024', '1036', '1048', '1060', '1072', '1084', '1096','1108', '1120','1132', '1156', '1192']
 
     maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
 
@@ -42,7 +42,7 @@ def func_peripartum_chem(visit_instance):
 
 def func_peripartum_vl(visit_instance):
 
-    visit=['1000','1001', '1002', '1004', '1008', '1012', '1024', '1048', '1072', '1084', '1096', '1108', '1120', '1132', '1144', '1156', '1168', '1180','1192']
+    visit=['1000','1001', '1002', '1004', '1008', '1012', '1024', '1036', '1060', '1084', '1096', '1108', '1120', '1132', '1144', '1156', '1168', '1180','1192']
 
     maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
 
@@ -64,7 +64,18 @@ def func_peripartum_pcr(visit_instance):
 
 def func_peripartum_cd4(visit_instance):
 
-    visit=['1000', '1004', '1024', '1048', '1084', '1096', '1108', '1120', '1132', '1144', '1156', '1168', '1180','1192']
+    visit=['1000', '1004', '1012','1024', '1048', '1072','1084', '1096', '1108', '1120', '1132', '1144', '1156', '1168', '1180','1192']
+
+    maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
+
+    if visit_instance.appointment.visit_definition.code in visit:
+        if maternal_id.cohort == 'peripartum':
+            return True
+    return False
+
+def func_peripartum_elisa(visit_instance):
+
+    visit=['1084',]
 
     maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
 
@@ -205,6 +216,15 @@ class PeripartumRuleGroup(RuleGroup):
             alternative='none'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['PBMC Plasma (STORE ONLY)', ], )
+    
+    """Ensures a elisa blood draw requisition for the right visits"""
+    peri_elisa = RequisitionRule(
+        logic=Logic(
+            predicate=func_peripartum_elisa,
+            consequence='new',
+            alternative='none'),
+        target_model=[('eit_lab', 'infantrequisition')],
+        target_requisition_panels=['ELISA', ], )
 
     class Meta:
         app_label = 'eit_infant'
