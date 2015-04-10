@@ -54,9 +54,12 @@ def func_peripartum_vl(visit_instance):
 def func_peripartum_pcr(visit_instance):
 
     visit=['1000', '1084']
+    
+    maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
 
     if visit_instance.appointment.visit_definition.code in visit:
-        return True
+        if maternal_id.cohort == 'peripartum':
+            return True
     return False
 
 def func_peripartum_cd4(visit_instance):
@@ -83,7 +86,7 @@ def func_antepartum_hema(visit_instance):
 
 def func_antepartum_pbmc(visit_instance):
 
-    visit=['1000', '1001', '1002', '1004', '1008', '1012', '1024', '1048', '1072', '1084', '1096', '1108' , '1120', '1132', '1156', '1192']
+    visit=['1000', '1001', '1002', '1004', '1008', '1012', '1024', '1036','1048', '1060','1072', '1084', '1096', '1108' , '1120', '1132', '1156', '1192']
 
     maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
 
@@ -125,6 +128,27 @@ def func_antepartum_pk(visit_instance):
             return True
     return False
 
+def func_antepartum_elisa(visit_instance):
+
+    visit=['1084',]
+
+    maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
+
+    if visit_instance.appointment.visit_definition.code in visit:
+        if maternal_id.cohort == 'antepartum':
+            return True
+    return False
+
+def func_antepartum_pcr(visit_instance):
+
+    visit=['1000', '1084', '1096']
+    
+    maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
+
+    if visit_instance.appointment.visit_definition.code in visit:
+        if maternal_id.cohort == 'antepartum':
+            return True
+    return False
 
 class PeripartumRuleGroup(RuleGroup):
 
@@ -235,6 +259,24 @@ class AntepartumRuleGroup(RuleGroup):
             alternative='not_required'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['Pharmacokinetics', ], )
+
+    """Ensures a elisa blood draw requisition for the right visits"""
+    ante_elisa = RequisitionRule(
+        logic=Logic(
+            predicate=func_antepartum_elisa,
+            consequence='new',
+            alternative='not_required'),
+        target_model=[('eit_lab', 'infantrequisition')],
+        target_requisition_panels=['ELISA', ], )
+
+    """Ensures a DNA PCR blood draw requisition for the right visits"""
+    ante_pcr = RequisitionRule(
+        logic=Logic(
+            predicate=func_antepartum_pcr,
+            consequence='new',
+            alternative='not_required'),
+        target_model=[('eit_lab', 'infantrequisition')],
+        target_requisition_panels=['DNA PCR', ], )
 
     class Meta:
         app_label = 'eit_infant'

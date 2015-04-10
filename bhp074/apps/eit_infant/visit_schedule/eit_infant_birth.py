@@ -218,33 +218,6 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 ),
             'entries': (
             )}
-    visit_definitions['1007'] = {
-            'title': 'Infant 7 Weeks Visit',
-            'time_point': 70,
-            'base_interval': 7*7,
-            'base_interval_unit': 'D',
-            'window_lower_bound': 0,
-            'window_lower_bound_unit': 'D',
-            'window_upper_bound': 0,
-            'window_upper_bound_unit': 'D',
-            'grouping': 'infant',
-            'visit_tracking_model': InfantVisit,
-            'schedule_group': 'Infant Birth',
-            'instructions': None,
-            'requisitions': (
-                #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
-                RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
-                ),
-            'entries': (
-            )}
     visit_definitions['1008'] = {
             'title': 'Infant 8 Weeks Visit',
             'time_point': 80,
