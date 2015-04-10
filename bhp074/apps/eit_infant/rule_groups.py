@@ -157,7 +157,7 @@ class PeripartumRuleGroup(RuleGroup):
         logic=Logic(
             predicate=func_peripartum_hema,
             consequence='new',
-            alternative='not_required'),
+            alternative='none'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['Hematology (ARV)', ], )
 
@@ -166,7 +166,7 @@ class PeripartumRuleGroup(RuleGroup):
         logic=Logic(
             predicate=func_peripartum_chem,
             consequence='new',
-            alternative='not_required'),
+            alternative='none'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['Chemistry NVP/LFT + ALPL6 (ARV)', ], )
 
@@ -175,7 +175,7 @@ class PeripartumRuleGroup(RuleGroup):
         logic=Logic(
             predicate=func_peripartum_vl,
             consequence='new',
-            alternative='not_required'),
+            alternative='none'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['Viral Load', ], )
 
@@ -184,7 +184,7 @@ class PeripartumRuleGroup(RuleGroup):
         logic=Logic(
             predicate=func_peripartum_pcr,
             consequence='new',
-            alternative='not_required'),
+            alternative='none'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['DNA PCR', ], )
 
@@ -193,7 +193,7 @@ class PeripartumRuleGroup(RuleGroup):
         logic=Logic(
             predicate=func_peripartum_cd4,
             consequence='new',
-            alternative='not_required'),
+            alternative='none'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['CD4 (ARV)', ], )
 
@@ -202,7 +202,7 @@ class PeripartumRuleGroup(RuleGroup):
         logic=Logic(
             predicate=func_peripartum_pbmc,
             consequence='new',
-            alternative='not_required'),
+            alternative='none'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['PBMC Plasma (STORE ONLY)', ], )
 
@@ -220,7 +220,7 @@ class AntepartumRuleGroup(RuleGroup):
         logic=Logic(
             predicate=func_antepartum_hema,
             consequence='new',
-            alternative='not_required'),
+            alternative='none'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['Hematology (ARV)', ], )
 
@@ -229,7 +229,7 @@ class AntepartumRuleGroup(RuleGroup):
         logic=Logic(
             predicate=func_antepartum_vl,
             consequence='new',
-            alternative='not_required'),
+            alternative='none'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['Viral Load', ], )
 
@@ -238,7 +238,7 @@ class AntepartumRuleGroup(RuleGroup):
         logic=Logic(
             predicate=func_antepartum_cd4,
             consequence='new',
-            alternative='not_required'),
+            alternative='none'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['CD4 (ARV)', ], )
 
@@ -247,7 +247,7 @@ class AntepartumRuleGroup(RuleGroup):
         logic=Logic(
             predicate=func_antepartum_pbmc,
             consequence='new',
-            alternative='not_required'),
+            alternative='none'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['PBMC Plasma (STORE ONLY)', ], )
 
@@ -256,7 +256,7 @@ class AntepartumRuleGroup(RuleGroup):
         logic=Logic(
             predicate=func_antepartum_pk,
             consequence='new',
-            alternative='not_required'),
+            alternative='none'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['Pharmacokinetics', ], )
 
@@ -265,7 +265,7 @@ class AntepartumRuleGroup(RuleGroup):
         logic=Logic(
             predicate=func_antepartum_elisa,
             consequence='new',
-            alternative='not_required'),
+            alternative='none'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['ELISA', ], )
 
@@ -274,7 +274,7 @@ class AntepartumRuleGroup(RuleGroup):
         logic=Logic(
             predicate=func_antepartum_pcr,
             consequence='new',
-            alternative='not_required'),
+            alternative='none'),
         target_model=[('eit_lab', 'infantrequisition')],
         target_requisition_panels=['DNA PCR', ], )
 
