@@ -13,6 +13,9 @@ class InfantBirthForm (BaseModelForm):
     def clean(self):
 
         cleaned_data = self.cleaned_data
+        consent = MaternalConsent.objects.get(subject_identifier=cleaned_data.get('registered_subject').relative_identifier)
+        if consent.cohort != 'control':
+            raise forms.ValidationError('The screening BID is required for the {} cohort. Please fill it in'.format(consent.cohort))
 
         if MaternalPostReg.objects.filter(registered_subject__subject_identifier=cleaned_data.get('registered_subject').relative_identifier):
             delivery = MaternalPostReg.objects.get(registered_subject__subject_identifier=cleaned_data.get('registered_subject').relative_identifier)
