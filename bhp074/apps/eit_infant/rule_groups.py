@@ -35,9 +35,12 @@ def func_peripartum_pbmc(visit_instance):
 def func_peripartum_chem(visit_instance):
 
     visit=['1000', '1004', '1144', '1192']
+    
+    maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
 
     if visit_instance.appointment.visit_definition.code in visit:
-        return True
+        if maternal_id.cohort != 'control':
+            return True
     return False
 
 def func_peripartum_vl(visit_instance):
@@ -160,6 +163,18 @@ def func_antepartum_pcr(visit_instance):
         if maternal_id.cohort == 'antepartum':
             return True
     return False
+
+def func_control(visit_instance):
+
+    visit=['1000']
+
+    maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
+
+    if visit_instance.appointment.visit_definition.code in visit:
+        if maternal_id.cohort == 'control':
+            return True
+    return False
+
 
 class PeripartumRuleGroup(RuleGroup):
 
@@ -303,3 +318,50 @@ class AntepartumRuleGroup(RuleGroup):
         source_fk = None
         source_model = RegisteredSubject
 site_rule_groups.register(AntepartumRuleGroup)
+
+
+class ControlRuleGroup(RuleGroup):
+
+    """Ensures a DNA PCR blood draw requisition for the right visits"""
+    ctrl_pcr = RequisitionRule(
+        logic=Logic(
+            predicate=func_control,
+            consequence='new',
+            alternative='none'),
+        target_model=[('eit_lab', 'infantrequisition')],
+        target_requisition_panels=['DNA PCR', ], )
+
+    """Ensures a Viral Load blood draw requisition for the right visits"""
+    ctrl_vl = RequisitionRule(
+        logic=Logic(
+            predicate=func_control,
+            consequence='new',
+            alternative='none'),
+        target_model=[('eit_lab', 'infantrequisition')],
+        target_requisition_panels=['Viral Load', ], )
+    
+    """Ensures a CD4 blood draw requisition for the right visits"""
+    ctrl_cd4 = RequisitionRule(
+        logic=Logic(
+            predicate=func_control,
+            consequence='new',
+            alternative='none'),
+        target_model=[('eit_lab', 'infantrequisition')],
+        target_requisition_panels=['CD4 (ARV)', ], )
+    
+    """Ensures a PBMC blood draw requisition for the right visits"""
+    ctrl_pbmc = RequisitionRule(
+        logic=Logic(
+            predicate=func_control,
+            consequence='new',
+            alternative='none'),
+        target_model=[('eit_lab', 'infantrequisition')],
+        target_requisition_panels=['PBMC Plasma (STORE ONLY)', ], )
+
+
+    class Meta:
+        app_label = 'eit_infant'
+        source_fk = None
+        source_model = RegisteredSubject
+site_rule_groups.register(ControlRuleGroup)
+
