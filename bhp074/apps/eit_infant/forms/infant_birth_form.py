@@ -14,8 +14,6 @@ class InfantBirthForm (BaseModelForm):
 
         cleaned_data = self.cleaned_data
 
-        if not cleaned_data.get('infant_redcap_sbid'):
-            raise forms.ValidationError('This is a required field.')
         if MaternalPostReg.objects.filter(registered_subject__subject_identifier=cleaned_data.get('registered_subject').relative_identifier):
             delivery = MaternalPostReg.objects.get(registered_subject__subject_identifier=cleaned_data.get('registered_subject').relative_identifier)
             if not cleaned_data.get('dob', None) == delivery.delivery_datetime.date():
