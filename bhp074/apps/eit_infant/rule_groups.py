@@ -155,7 +155,7 @@ def func_antepartum_elisa(visit_instance):
 
 def func_antepartum_pcr(visit_instance):
 
-    visit=['1000', '1084', '1096']
+    visit=['1000', '1084']
     
     maternal_id = MaternalConsent.objects.get(subject_identifier=visit_instance.registered_subject.relative_identifier)
 
