@@ -12,6 +12,9 @@ from edc.choices.common import GENDER_UNDETERMINED
 from edc.core.crypto_fields.fields import EncryptedFirstnameField
 from edc.subject.consent.classes import ConsentHelper
 from edc.subject.registration.models import BaseRegisteredSubjectModel
+from edc.subject.appointment.models import Appointment
+
+from apps.eit_maternal.models import MaternalConsent
 
 from ..models import InfantVisit
 
@@ -46,6 +49,10 @@ class InfantBirth(BaseRegisteredSubjectModel):
     objects = models.Manager()
     history = AuditTrail()
 
+#     def save(self, *args, **kwargs):
+#         self.delete_control_apps()
+#         super(InfantBirth, self).save(*args, **kwargs)
+
     @property
     def maternal_identifier(self):
         pass
@@ -77,6 +84,14 @@ class InfantBirth(BaseRegisteredSubjectModel):
                     appointment.delete()
                 except IntegrityError:
                     pass
+
+    def delete_control_apps_post_save(self):
+        maternal_subject = MaternalConsent.objects.get(registered_subject__subject_identifier=self.registered_subject.relative_identifier)
+        if maternal_subject.cohort == 'control':
+            appointments = Appointment.objects.filter(registered_subject=self.registered_subject)
+            for ap in appointments:
+                if ap.visit_definition.code != '1000':
+                    ap.delete()
 
     def get_report_datetime(self):
         return self.get_registration_datetime()
