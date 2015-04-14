@@ -4,12 +4,13 @@ from edc.dashboard.subject.classes import RegisteredSubjectDashboard
 from edc.subject.registration.models import RegisteredSubject
 
 from apps.eit_infant.models import InfantBirth, InfantVisit
-
 from apps.eit_maternal.models import MaternalConsent, MaternalPostReg
 from apps.eit_lab.models import InfantRequisition, PackingList, Panel
 
+from .dashboard_mixin import DashboardMixin
 
-class InfantDashboard(RegisteredSubjectDashboard):
+
+class InfantDashboard(DashboardMixin, RegisteredSubjectDashboard):
 
     view = 'infant_dashboard'
     dashboard_name = 'Infant Dashboard'
@@ -30,13 +31,14 @@ class InfantDashboard(RegisteredSubjectDashboard):
         self._infant_birth = None
         self.dashboard_type_list = ['infant']
         self.dashboard_models['infant_birth'] = InfantBirth
-        self.membership_form_category= ['infant_birth_record']
+        self.membership_form_category = ['infant_birth_record']
         self.visit_model = InfantVisit
         self._locator_model = None
         self._requisition_model = InfantRequisition
 
     def get_context_data(self, **kwargs):
         self.context = super(InfantDashboard, self).get_context_data(**kwargs)
+        panels = Panel.objects.all()
         self.context.update(
             home='eit',
             search_name='infant',
@@ -46,6 +48,7 @@ class InfantDashboard(RegisteredSubjectDashboard):
             infant_birth=self.birth,
             delivery_date=self.get_delivery_date(),
             maternal_consent=self.get_maternal_consent(),
+            panels=panels,
             local_results=self.render_labs()
         )
         return self.context
