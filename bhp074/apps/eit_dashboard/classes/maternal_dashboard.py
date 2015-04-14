@@ -8,8 +8,10 @@ from apps.eit_infant.models import InfantBirth
 from apps.eit_lab.models import MaternalRequisition, PackingList
 from apps.eit_maternal.models import MaternalConsent, MaternalVisit
 
+from .dashboard_mixin import DashboardMixin
 
-class MaternalDashboard(RegisteredSubjectDashboard):
+
+class MaternalDashboard(DashboardMixin, RegisteredSubjectDashboard):
 
     view = 'maternal_dashboard'
     dashboard_name = 'Maternal Dashboard'

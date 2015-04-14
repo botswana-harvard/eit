@@ -75,10 +75,10 @@ urlpatterns += patterns('',
 #          include('apps.mpepu_stats.urls'), name="stats_url_name"),
 #  )
 
-# urlpatterns += patterns('',
-#     url(r'^{app_name}/section/labclinic/'.format(app_name=APP_NAME),
-#         include('edc.lab.lab_clinic_api.urls'), name="section_url_name"),
-# )
+urlpatterns += patterns('',
+    url(r'^{app_name}/section/labclinic/'.format(app_name=APP_NAME),
+        include('edc.lab.lab_clinic_api.urls'), name="section_url_name"),
+)
 
 urlpatterns += patterns('',
     url(r'^{app_name}/dashboard/'.format(app_name=APP_NAME), include('apps.{app_name}_dashboard.urls'.format(app_name=APP_NAME))),
