@@ -1,5 +1,6 @@
-from django.core.exceptions import ImproperlyConfigured
+from django.core.exceptions import ImproperlyConfigured, ValidationError
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.conf import settings
 from django.db import models, IntegrityError
 
 from datetime import datetime
@@ -48,10 +49,6 @@ class InfantBirth(BaseRegisteredSubjectModel):
         )
     objects = models.Manager()
     history = AuditTrail()
-
-#     def save(self, *args, **kwargs):
-#         self.delete_control_apps()
-#         super(InfantBirth, self).save(*args, **kwargs)
 
     @property
     def maternal_identifier(self):
