@@ -97,19 +97,10 @@ class EitAppConfiguration(BaseAppConfiguration):
                                      AliquotTypeTuple('Buffy Coat', 'BC', '16'),
 
                                      ],
-                    'profile': [ProfileTuple('Viral load (storage only)','WB'),
-                                ProfileTuple('ARV Resistance Testing','WB'),
-                                ProfileTuple('Plasma and Buffy Coat Storage (Infant)','WB'),
-                                ProfileTuple('Plasma and Buffy Coat Storage (Maternal)','WB'),
+                    'profile': [ProfileTuple('PBMC Plasma (STORE ONLY)','WB'),
                                 ],
-                    'profile_item': [ProfileItemTuple('Viral load (storage only)', 'PL', 1.8, 3),
-                                     ProfileItemTuple('Viral load (storage only)', 'BC', 0.5, 1),
-                                     ProfileItemTuple('ARV Resistance Testing','PL', 1.8, 3),
-                                     ProfileItemTuple('ARV Resistance Testing','BC', 0.5, 1),
-                                     ProfileItemTuple('Plasma and Buffy Coat Storage (Infant)','PL', 1.0, 1),
-                                     ProfileItemTuple('Plasma and Buffy Coat Storage (Infant)','BC', 0.2, 1),
-                                     ProfileItemTuple('Plasma and Buffy Coat Storage (Maternal)','PL', 1.8, 2),
-                                     ProfileItemTuple('Plasma and Buffy Coat Storage (Maternal)','BC', 0.5, 2),
+                    'profile_item': [ProfileItemTuple('PBMC Plasma (STORE ONLY)', 'PL', 1.8, 3),
+                                     ProfileItemTuple('PBMC Plasma (STORE ONLY)', 'BC', 0.5, 1),
                                      ]
                     }}
 
