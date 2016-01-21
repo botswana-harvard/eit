@@ -4,8 +4,8 @@ from edc.lab.lab_profile.models import BaseProfileItem
 
 # from ..managers import ProfileItemManager
 
-from apps.eit_lab.models import AliquotType
-from apps.eit_lab.models import AliquotProfile
+from eit.apps.eit_lab.models import AliquotType
+from eit.apps.eit_lab.models import AliquotProfile
 
 
 class AliquotProfileItem(BaseProfileItem):

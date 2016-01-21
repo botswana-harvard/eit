@@ -12,8 +12,8 @@ from edc.subject.rule_groups.classes import site_rule_groups
 from edc.subject.visit_tracking.models.base_visit_tracking import BaseVisitTracking
 from edc.subject.visit_tracking.settings import VISIT_REASON_NO_FOLLOW_UP_CHOICES, VISIT_REASON_FOLLOW_UP_CHOICES
 
-from apps.eit.choices import INFO_PROVIDER
-from apps.eit_infant.choices import VISIT_REASON
+from eit.apps.eit.choices import INFO_PROVIDER
+from eit.apps.eit_infant.choices import VISIT_REASON
 # from bhp074.apps.eit_lab.models.panel import Panel
 
 

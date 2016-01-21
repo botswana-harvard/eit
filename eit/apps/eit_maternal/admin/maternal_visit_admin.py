@@ -4,7 +4,7 @@ from collections import OrderedDict
 from edc.export.actions import export_as_csv_action
 from edc.subject.appointment.admin import BaseAppointmentModelAdmin
 
-from apps.eit_lab.models import MaternalRequisition
+from eit.apps.eit_lab.models import MaternalRequisition
 
 from ..models import MaternalVisit
 from ..forms import MaternalVisitForm

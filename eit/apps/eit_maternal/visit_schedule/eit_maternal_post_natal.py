@@ -4,7 +4,7 @@ from edc.constants import REQUIRED, NOT_REQUIRED, ADDITIONAL, NOT_ADDITIONAL
 from edc.subject.visit_schedule.classes import (VisitScheduleConfiguration, site_visit_schedules, EntryTuple,
                                                  MembershipFormTuple, ScheduleGroupTuple, RequisitionPanelTuple)
 
-from apps.eit_maternal.models import MaternalConsent, MaternalVisit, MaternalPostReg
+from eit.apps.eit_maternal.models import MaternalConsent, MaternalVisit, MaternalPostReg
 
 
 class EitMaternalPostNatalVisitSchedule(VisitScheduleConfiguration):

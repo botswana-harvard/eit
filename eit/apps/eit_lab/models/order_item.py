@@ -5,9 +5,9 @@ from django.db import models
 from edc.audit.audit_trail import AuditTrail
 from edc.device.sync.models import BaseSyncUuidModel
 
-from apps.eit_lab.models import Aliquot
-from apps.eit_lab.models import Order
-from apps.eit_lab.models import Panel
+from eit.apps.eit_lab.models import Aliquot
+from eit.apps.eit_lab.models import Order
+from eit.apps.eit_lab.models import Panel
 # from ..managers import OrderItemManager
 
 

@@ -5,8 +5,8 @@ from edc.subject.registration.models import RegisteredSubject
 from edc.base.form.forms import BaseModelForm
 from edc.subject.consent.forms import BaseConsentedModelForm
 
-from apps.eit_infant.models import InfantBirth
-from apps.eit_maternal.models import MaternalPostReg, MaternalConsent
+from eit.apps.eit_infant.models import InfantBirth
+from eit.apps.eit_maternal.models import MaternalPostReg, MaternalConsent
 
 
 class InfantBirthForm (BaseModelForm):

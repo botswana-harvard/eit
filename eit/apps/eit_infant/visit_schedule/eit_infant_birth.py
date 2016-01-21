@@ -3,7 +3,7 @@ from collections import OrderedDict
 from edc.subject.visit_schedule.classes import VisitScheduleConfiguration, site_visit_schedules, EntryTuple, MembershipFormTuple, ScheduleGroupTuple, RequisitionPanelTuple
 from edc.constants import REQUIRED, NOT_REQUIRED, ADDITIONAL, NOT_ADDITIONAL
 
-from apps.eit_infant.models import InfantVisit, InfantBirth
+from eit.apps.eit_infant.models import InfantVisit, InfantBirth
 
 
 class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
@@ -42,13 +42,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
  
@@ -71,13 +73,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
 
@@ -99,13 +103,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -127,13 +133,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -154,13 +162,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -181,13 +191,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -208,13 +220,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -235,13 +249,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -262,13 +278,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -289,13 +307,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -316,13 +336,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -346,10 +368,11 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -370,13 +393,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -397,13 +422,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -424,13 +451,16 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+#                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -451,13 +481,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -478,13 +510,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -505,13 +539,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -532,13 +568,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -559,13 +597,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -586,13 +626,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -613,13 +655,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -640,13 +684,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}
@@ -667,13 +713,15 @@ class EitInfantBirthVisitSchedule(VisitScheduleConfiguration):
                 #(entry_order, app_label, model_name, requisition_panel_name, panel_type, aliquot_type_alpha_code, form_visible)
                 RequisitionPanelTuple(100L, u'eit_lab', u'infantrequisition', 'DNA PCR', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(200L, u'eit_lab', u'infantrequisition', 'Plasma and Buffy Coat Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(250L, u'eit_lab', u'infantrequisition', 'Plasma Storage', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(300L, u'eit_lab', u'infantrequisition', 'Hematology (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(400L, u'eit_lab', u'infantrequisition', 'ELISA', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(500L, u'eit_lab', u'infantrequisition', 'Chemistry NVP/LFT + ALPL6 (ARV)', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(550L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry NON-LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(580L, u'eit_lab', u'infantrequisition', 'BHP074 Chemistry LPV', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(600L, u'eit_lab', u'infantrequisition', 'Viral Load', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
-                RequisitionPanelTuple(700L, u'eit_lab', u'infantrequisition', 'PBMC Plasma (STORE ONLY)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(800L, u'eit_lab', u'infantrequisition', 'Pharmacokinetics', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
                 RequisitionPanelTuple(900L, u'eit_lab', u'infantrequisition', 'CD4 (ARV)', 'STORAGE', 'WB', NOT_REQUIRED, ADDITIONAL),
+                RequisitionPanelTuple(910L, u'eit_lab', u'infantrequisition', 'HIV Genotyping', 'TEST', 'WB', NOT_REQUIRED, ADDITIONAL),
                 ),
             'entries': (
             )}

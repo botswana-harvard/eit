@@ -8,7 +8,7 @@ import logger
 from .installed_apps import DJANGO_APPS, THIRD_PARTY_APPS, EDC_APPS, LIS_APPS, LOCAL_APPS
 
 
-DEBUG = False
+DEBUG = True
 INTERNAL_IPS = ('127.0.0.1',)
 TEMPLATE_DEBUG = DEBUG
 DIRNAME = os.path.dirname(__file__)
@@ -24,7 +24,7 @@ ADMINS = (
 
 # Path
 PROJECT_ROOT = Path(__file__).ancestor(3)
-SOURCE_DIR = Path(__file__).ancestor(3)
+SOURCE_DIR = Path(__file__).ancestor(4)
 PROJECT_DIR = Path(__file__).ancestor(2)
 MEDIA_ROOT = PROJECT_DIR.child('media')
 STATIC_ROOT = PROJECT_DIR.child('static')
@@ -33,11 +33,12 @@ TEMPLATE_DIRS = (
     '/home/django/source/edc_project/edc/templates',
     )
 STATICFILES_DIRS = ()
-CONFIG_DIR = PROJECT_DIR.child('bhp074')
+CONFIG_DIR = PROJECT_DIR.child('eit')
+GIT_DIR = []
 
 #Key Path
-# KEY_PATH = '/Users/fchilisa/source/bhp074_project/bhp074/keys'
-KEY_PATH = '/home/django/source/bhp074_project/bhp074/keys'
+# KEY_PATH = '/Users/fchilisa/source/eit/eit/keys'
+KEY_PATH = '/home/django/source/keys'
 
 MAP_DIR = STATIC_ROOT.child('img')
 
@@ -194,10 +195,10 @@ TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
                                "django.core.context_processors.request",
                                "django.contrib.messages.context_processors.messages")
 
-ROOT_URLCONF = 'config.urls'
+ROOT_URLCONF = 'eit.config.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'config.wsgi.application'
+WSGI_APPLICATION = 'eit.config.wsgi.application'
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + EDC_APPS + LIS_APPS + LOCAL_APPS
 

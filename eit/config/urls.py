@@ -22,7 +22,7 @@ site_lab_profiles.autodiscover()
 from dajaxice.core import dajaxice_autodiscover, dajaxice_config
 dajaxice_autodiscover()
 
-from apps.eit.eit_app_configuration.classes import EitAppConfiguration
+from eit.apps.eit.eit_app_configuration.classes import EitAppConfiguration
 # 
 EitAppConfiguration().prepare()
 site_visit_schedules.autodiscover()
@@ -81,7 +81,7 @@ urlpatterns += patterns('',
 )
 
 urlpatterns += patterns('',
-    url(r'^{app_name}/dashboard/'.format(app_name=APP_NAME), include('apps.{app_name}_dashboard.urls'.format(app_name=APP_NAME))),
+    url(r'^{app_name}/dashboard/'.format(app_name=APP_NAME), include('eit.apps.{app_name}_dashboard.urls'.format(app_name=APP_NAME))),
 )
 
 urlpatterns += patterns('',

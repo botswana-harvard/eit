@@ -1,7 +1,7 @@
 LOCAL_APPS = (
-    'apps.eit',
-    'apps.eit_dashboard',
-    'apps.eit_infant',
-    'apps.eit_lab',
-    'apps.eit_maternal',
+    'eit.apps.eit',
+    'eit.apps.eit_dashboard',
+    'eit.apps.eit_infant',
+    'eit.apps.eit_lab',
+    'eit.apps.eit_maternal',
 )

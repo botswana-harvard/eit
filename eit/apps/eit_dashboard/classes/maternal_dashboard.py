@@ -4,9 +4,9 @@ from edc.core.bhp_common.utils import convert_from_camel
 from edc.dashboard.subject.classes import RegisteredSubjectDashboard
 from edc.subject.registration.models import RegisteredSubject
 
-from apps.eit_infant.models import InfantBirth
-from apps.eit_lab.models import MaternalRequisition, PackingList
-from apps.eit_maternal.models import MaternalConsent, MaternalVisit
+from eit.apps.eit_infant.models import InfantBirth
+from eit.apps.eit_lab.models import MaternalRequisition, PackingList
+from eit.apps.eit_maternal.models import MaternalConsent, MaternalVisit
 
 from .dashboard_mixin import DashboardMixin
 

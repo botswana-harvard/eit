@@ -3,9 +3,9 @@ from datetime import timedelta, date, datetime
 from edc.dashboard.subject.classes import RegisteredSubjectDashboard
 from edc.subject.registration.models import RegisteredSubject
 
-from apps.eit_infant.models import InfantBirth, InfantVisit
-from apps.eit_maternal.models import MaternalConsent, MaternalPostReg
-from apps.eit_lab.models import InfantRequisition, PackingList, Panel
+from eit.apps.eit_infant.models import InfantBirth, InfantVisit
+from eit.apps.eit_maternal.models import MaternalConsent, MaternalPostReg
+from eit.apps.eit_lab.models import InfantRequisition, PackingList, Panel
 
 from .dashboard_mixin import DashboardMixin
 

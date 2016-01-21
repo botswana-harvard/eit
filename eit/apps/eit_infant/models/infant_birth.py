@@ -15,7 +15,7 @@ from edc.subject.consent.classes import ConsentHelper
 from edc.subject.registration.models import BaseRegisteredSubjectModel
 from edc.subject.appointment.models import Appointment
 
-from apps.eit_maternal.models import MaternalConsent
+from eit.apps.eit_maternal.models import MaternalConsent
 
 from ..models import InfantVisit
 
