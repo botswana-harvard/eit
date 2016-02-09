@@ -69,7 +69,7 @@ class InfantVisit(BaseVisitTracking):
         return self.get_registered_subject()
 
     def get_absolute_url(self):
-        return reverse('admin:mpepu_infant_infantvisit_change', args=(self.id,))
+        return reverse('admin:eit_infant_infantvisit_change', args=(self.id,))
 
     def get_consenting_subject_identifier(self):
         """Returns mother's identifier."""

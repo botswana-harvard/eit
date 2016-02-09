@@ -42,7 +42,7 @@ class MaternalVisit(BaseVisitTracking):
         super(MaternalVisit, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('admin:mpepu_maternal_maternalvisit_change', args=(self.id,))
+        return reverse('admin:eit_maternal_maternalvisit_change', args=(self.id,))
 
     class Meta:
         verbose_name = "Maternal Visit"

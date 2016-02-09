@@ -14,8 +14,8 @@ from lis.labeling.classes import LabelPrinterTuple, ZplTemplateTuple, ClientTupl
 from lis.specimen.lab_aliquot_list.classes import AliquotTypeTuple
 from lis.specimen.lab_panel.classes import PanelTuple
 
-study_start_datetime = datetime(2011, 05, 10, 8, 00, 00)
-study_end_datetime = datetime(2016, 01, 20, 23, 49, 40)
+study_start_datetime = datetime(2014, 05, 10, 8, 00, 00)
+study_end_datetime = datetime(2018, 01, 20, 23, 49, 40)
 
 
 class EitAppConfiguration(BaseAppConfiguration):
