@@ -78,6 +78,9 @@ class MaternalConsent(BaseMaternalConsent):
 
     def dispatch_container_lookup(self):
         return None
+    
+    def get_test_code(self):
+        return 'HIV'
 
     @classmethod
     def get_consent_update_model(self):

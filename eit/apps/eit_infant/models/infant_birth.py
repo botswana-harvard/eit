@@ -95,6 +95,9 @@ class InfantBirth(BaseRegisteredSubjectModel):
 
     def get_visit(self):
         return self.infant_visit
+    
+    def get_test_code(self):
+        return 'HIV'
 
     class Meta:
         app_label = "eit_infant"
