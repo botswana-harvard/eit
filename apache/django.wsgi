@@ -7,7 +7,7 @@ ROOT = '/home/django/'
  
 VIRTUALENV_PATH = os.path.join(ROOT, '.virtualenvs/django_1.6.5')
 SOURCE_ROOT_PATH = os.path.join(ROOT, 'source/')
-LOCAL_PROJECT_RELPATH = 'bhp074_project/bhp074'
+LOCAL_PROJECT_RELPATH = 'eit/'
  
 # update paths to projects
 sys.path.insert(0, os.path.join(SOURCE_ROOT_PATH, LOCAL_PROJECT_RELPATH))
@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.join(SOURCE_ROOT_PATH, 'lis_project'))
 sys.path.insert(0, os.path.join(VIRTUALENV_PATH, 'local/lib/python2.7/site-packages'))
  
 # point django to settings. Note settings file name is custom in this case
-os.environ['DJANGO_SETTINGS_MODULE'] = 'config.settings'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'eit.config.settings'
  
 #if platform.system() == 'Darwin':
 #        os.environ['PYTHON_EGG_CACHE'] = '/usr/local/pylons/python-eggs'
