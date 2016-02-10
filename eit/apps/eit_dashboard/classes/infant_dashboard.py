@@ -1,11 +1,11 @@
-from datetime import timedelta, date, datetime
+from datetime import timedelta, date
 
 from edc.dashboard.subject.classes import RegisteredSubjectDashboard
 from edc.subject.registration.models import RegisteredSubject
 
 from eit.apps.eit_infant.models import InfantBirth, InfantVisit
 from eit.apps.eit_maternal.models import MaternalConsent, MaternalPostReg
-from eit.apps.eit_lab.models import InfantRequisition, PackingList, Panel
+from eit.apps.eit_lab.models import InfantRequisition, Panel
 
 from .dashboard_mixin import DashboardMixin
 
@@ -17,7 +17,7 @@ class InfantDashboard(DashboardMixin, RegisteredSubjectDashboard):
     dashboard_url_name = 'subject_dashboard_url'
     urlpatterns = [
         RegisteredSubjectDashboard.urlpatterns[0][:-1] + '(?P<appointment_code>{appointment_code})/$'
-        ] + RegisteredSubjectDashboard.urlpatterns
+    ] + RegisteredSubjectDashboard.urlpatterns
     urlpattern_options = dict(
         RegisteredSubjectDashboard.urlpattern_options,
         dashboard_model=RegisteredSubjectDashboard.urlpattern_options['dashboard_model'] + '|infant_birth_record',
@@ -73,7 +73,7 @@ class InfantDashboard(DashboardMixin, RegisteredSubjectDashboard):
     def subject_identifier(self):
         self._subject_identifier = None
         if self.birth:
-            self._subject_identifier=self.birth.registered_subject.subject_identifier
+            self._subject_identifier = self.birth.registered_subject.subject_identifier
         return self._subject_identifier
 
     @property
@@ -85,7 +85,7 @@ class InfantDashboard(DashboardMixin, RegisteredSubjectDashboard):
         elif self.registered_subject:
             try:
                 self._infant_birth = InfantBirth.objects.get(registered_subject=self.registered_subject)
-            except Exception as e:
+            except Exception:
                 self._infant_birth = InfantBirth.objects.none()
         else:
             self._infant_birth = InfantBirth.objects.none()
@@ -139,4 +139,3 @@ class InfantDashboard(DashboardMixin, RegisteredSubjectDashboard):
 
     def subject_hiv_status(self):
         return 'POS'
-

@@ -15,7 +15,7 @@ def maternal_dashboard(request, **kwargs):
         registered_subject=kwargs.get('registered_subject'),
         show=kwargs.get('show'),
         dashboard_type_list=['maternal'],
-        )
+    )
     dashboard.set_context()
     return render_to_response(
         'maternal_dashboard.html',

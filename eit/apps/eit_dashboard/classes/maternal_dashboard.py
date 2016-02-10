@@ -18,7 +18,7 @@ class MaternalDashboard(DashboardMixin, RegisteredSubjectDashboard):
     dashboard_url_name = 'subject_dashboard_url'
     urlpatterns = [
         RegisteredSubjectDashboard.urlpatterns[0][:-1] + '(?P<appointment_code>{appointment_code})/$'
-        ] + RegisteredSubjectDashboard.urlpatterns
+    ] + RegisteredSubjectDashboard.urlpatterns
     urlpattern_options = dict(
         RegisteredSubjectDashboard.urlpattern_options,
         dashboard_model=RegisteredSubjectDashboard.urlpattern_options['dashboard_model'] + '|maternal_consent|maternal_eligible_postnatal',
@@ -31,8 +31,8 @@ class MaternalDashboard(DashboardMixin, RegisteredSubjectDashboard):
         super(MaternalDashboard, self).__init__(*args, **kwargs)
         self.visit_model = MaternalVisit
         self.dashboard_type_list = ['maternal']
-        self.dashboard_models['maternal_consent']  = MaternalConsent
-        self.membership_form_category= ['maternal_eligible_postnatal']
+        self.dashboard_models['maternal_consent'] = MaternalConsent
+        self.membership_form_category = ['maternal_eligible_postnatal']
         self._locator_model = None
         self._requisition_model = MaternalRequisition
 
@@ -46,7 +46,7 @@ class MaternalDashboard(DashboardMixin, RegisteredSubjectDashboard):
             title='Maternal Dashboard',
             delivery_datetime=self.get_delivery_datetime(),
             maternal_consent=self.consent
-            )
+        )
         return self.context
 
     @property
@@ -62,7 +62,6 @@ class MaternalDashboard(DashboardMixin, RegisteredSubjectDashboard):
     @property
     def registered_subject(self):
         if not self._registered_subject:
-            #pass
             try:
                 self._registered_subject = RegisteredSubject.objects.get(pk=self.dashboard_id)
             except RegisteredSubject.DoesNotExist:
@@ -112,7 +111,7 @@ class MaternalDashboard(DashboardMixin, RegisteredSubjectDashboard):
         """Returns a list of infants identifiers asssociated with the maternal subject_identifier by querying the Birth model or RegisteredSubject."""
         infants = OrderedDict()
         for infant_registered_subject in RegisteredSubject.objects.filter(subject_type='infant', relative_identifier__iexact=self.subject_identifier):
-            #look for infant birth record
+            # look for infant birth record
             if InfantBirth.objects.filter(registered_subject__exact=infant_registered_subject).exists():
                 infant_birth = InfantBirth.objects.get(registered_subject__exact=infant_registered_subject)
                 dct = infant_birth.__dict__
