@@ -13,7 +13,7 @@ INTERNAL_IPS = ('127.0.0.1',)
 TEMPLATE_DEBUG = DEBUG
 DIRNAME = os.path.dirname(__file__)
 
-#Email configuration
+# Email configuration
 SEND_BROKEN_LINK_EMAILS = True
 SERVER_EMAIL = 'edcdev@bhp.org.bw'
 EMAIL_SUBJECT_PREFIX = '[eit] '
@@ -29,15 +29,13 @@ PROJECT_DIR = Path(__file__).ancestor(2)
 MEDIA_ROOT = PROJECT_DIR.child('media')
 STATIC_ROOT = PROJECT_DIR.child('static')
 TEMPLATE_DIRS = (
-#     '/Users/fchilisa/source/edc_project/edc/templates',
     '/home/django/source/edc_project/edc/templates',
-    )
+)
 STATICFILES_DIRS = ()
 CONFIG_DIR = PROJECT_DIR.child('eit')
 GIT_DIR = []
 
-#Key Path
-# KEY_PATH = '/Users/fchilisa/source/eit/eit/keys'
+# Key Path
 KEY_PATH = '/home/django/source/keys'
 
 MAP_DIR = STATIC_ROOT.child('img')
@@ -115,8 +113,8 @@ TIME_ZONE = 'Africa/Gaborone'
 
 LANGUAGE_CODE = 'en'
 LANGUAGES = (
-             ('en', 'English'),
-             ('tn', 'Setswana'),
+    ('en', 'English'),
+    ('tn', 'Setswana'),
 )
 
 SITE_ID = 1
@@ -131,7 +129,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-#MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+# MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -140,7 +138,7 @@ MEDIA_URL = '/media/'
 
 # Absolute path to the directory that holds static files.
 # Example: "/home/media/media.lawrence.com/static/"
-#STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+# STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 # URL that handles the static files served from STATIC_ROOT.
 # Example: "http://media.lawrence.com/static/"
@@ -150,7 +148,7 @@ STATIC_URL = '/static/'
 # URL prefix for admin media -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-#ADMIN_MEDIA_PREFIX = '/static/admin/'
+# ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # A list of locations of additional static files
 STATICFILES_DIRS = ()
@@ -161,7 +159,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'dajaxice.finders.DajaxiceFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -184,7 +181,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-#     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
@@ -208,7 +204,7 @@ EMAIL_PORT = '25'
 EMAIL_HOST_USER = 'edcdev'
 EMAIL_HOST_PASSWORD = 'cc3721b'
 EMAIL_USE_TLS = True
-#EMAIL_AFTER_CONSUME = False
+# EMAIL_AFTER_CONSUME = False
 
 SOUTH_LOGGING_FILE = os.path.join(os.path.dirname(__file__), "south.log")
 SOUTH_LOGGING_ON = True
@@ -239,7 +235,7 @@ LABDB = 'bhplab'
 SESSION_COOKIE_AGE = 3000
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 DEVICE_ID = '99'
-SERVER_DEVICE_ID_LIST = [99,]
+SERVER_DEVICE_ID_LIST = [99, ]
 MIDDLEMAN_DEVICE_ID_LIST = []
 SUBJECT_TYPES = ['infant', 'maternal']
 MAX_SUBJECTS = {'maternal': 100, 'infant': 100}
@@ -250,7 +246,7 @@ LABEL_PRINTER_MAKE_AND_MODEL = ['Zebra ZPL Label Printer']
 SUBJECT_APP_LIST = ['eit_infant', 'eit_maternal']
 DISPATCH_APP_LABELS = []
 
-#BHP_CRYPTO_SETTINGS
+# BHP_CRYPTO_SETTINGS
 IS_SECURE_DEVICE = False
 MAY_CREATE_NEW_KEYS = True
 
@@ -269,12 +265,6 @@ driver = '{FreeTDS}'
 mac_driver = '/usr/local/lib/libtdsodbc.so'
 if platform.system() == 'Darwin':
     LAB_IMPORT_DMIS_DATA_SOURCE = 'DSN=%s;UID=%s;PWD=%s;DATABASE=%s;DRIVER=%s' % (dsn, user, password, database, mac_driver)
-                                  #('DRIVER=/usr/local/lib/libtdsodbc.so;SERVER=192.168.1.141;'
-                                  #'PORT=1433;UID=sa;PWD=cc3721b;DATABASE=BHPLAB;'
-                                  #'CHARSET=UTF8;TDS_Version=8.0; ServerName=s012')
 else:
     LAB_IMPORT_DMIS_DATA_SOURCE = 'DSN=%s;UID=%s;PWD=%s;DATABASE=%s;DRIVER=%s' % (dsn, user, password, database, driver)
-                                  #('DRIVER={FreeTDS};SERVER=192.168.1.141;UID=sa;PWD=cc3721b;'
-                                  #'DATABASE=BHPLAB;CHARSET=UTF8;TDS_Version=8.0;PORT=1433; ServerName=s012')
 VAR_ROOT = '/var'
-#LOGGING = logger.LOGGING
