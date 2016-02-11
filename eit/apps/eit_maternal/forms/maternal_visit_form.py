@@ -1,4 +1,3 @@
-from django.db.models import Q, get_model
 from django import forms
 from django.contrib.admin.widgets import AdminRadioSelect, AdminRadioFieldRenderer
 
@@ -21,7 +20,7 @@ class MaternalVisitForm (BaseConsentedModelForm):
         choices=[choice for choice in VISIT_REASON],
         help_text="If 'unscheduled', information is usually reported at the next scheduled visit, but exceptions may arise",
         widget=AdminRadioSelect(renderer=AdminRadioFieldRenderer),
-        )
+    )
 
     def clean(self):
 

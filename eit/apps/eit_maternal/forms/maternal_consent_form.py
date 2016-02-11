@@ -1,5 +1,4 @@
 from django import forms
-import re
 
 from edc.subject.consent.forms import BaseSubjectConsentForm, BaseConsentUpdateForm
 

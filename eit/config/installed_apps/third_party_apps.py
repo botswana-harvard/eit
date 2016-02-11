@@ -3,5 +3,4 @@ THIRD_PARTY_APPS = (
     'dajaxice',
     'django_databrowse',
     'django_extensions',
-#     'south',
 )

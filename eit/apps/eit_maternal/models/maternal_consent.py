@@ -18,7 +18,8 @@ class MaternalConsent(BaseMaternalConsent):
 
     history = AuditTrail()
 
-    registered_subject = models.OneToOneField(RegisteredSubject,
+    registered_subject = models.OneToOneField(
+        RegisteredSubject,
         editable=False,
         null=True,
         help_text='')
@@ -27,7 +28,7 @@ class MaternalConsent(BaseMaternalConsent):
         verbose_name="Cohort",
         max_length=15,
         choices=COHORT,
-        )
+    )
 
     def save_new_consent(self, using=None, subject_identifier=None):
         from edc.core.identifier.models import SubjectIdentifier
@@ -38,31 +39,37 @@ class MaternalConsent(BaseMaternalConsent):
         m_indicator = "2"
         prefix = 'M'
 
-        if self.cohort=='antepartum':
-            cohort_id=10
+        if self.cohort == 'antepartum':
+            cohort_id = 10
             prev_id = SubjectIdentifier.objects.filter(device_id=cohort_id).order_by('-sequence_number')
             if prev_id:
-                seq = prev_id[0].sequence_number+1
+                seq = prev_id[0].sequence_number + 1
             else:
                 seq = 101
-        elif self.cohort=='peripartum':
-            cohort_id=20
+        elif self.cohort == 'peripartum':
+            cohort_id = 20
             prev_id = SubjectIdentifier.objects.filter(device_id=cohort_id).order_by('-sequence_number')
             if prev_id:
-                seq = prev_id[0].sequence_number+1
+                seq = prev_id[0].sequence_number + 1
             else:
                 seq = 201
         else:
-            prefix='C'
-            cohort_id=30
+            prefix = 'C'
+            cohort_id = 30
             prev_id = SubjectIdentifier.objects.filter(device_id=cohort_id).order_by('-sequence_number')
             if prev_id:
-                seq = prev_id[0].sequence_number+1
+                seq = prev_id[0].sequence_number + 1
             else:
                 seq = 301
-        check_digit = check.calculate(int(protocol+str(seq)+m_indicator), modulus=7)
-        subject_identifier = protocol+"-"+prefix+"-"+str(seq)+"-"+m_indicator+"-"+str(check_digit)
-        identifier = SubjectIdentifier(padding=3, sequence_number=seq, identifier=subject_identifier, device_id=cohort_id,sequence_model_name='maternalconsent', sequence_app_label='eit_maternal')
+        check_digit = check.calculate(int(protocol + str(seq) + m_indicator), modulus=7)
+        subject_identifier = protocol + "-" + prefix + "-" + str(seq) + "-" + m_indicator + "-" + str(check_digit)
+        identifier = SubjectIdentifier(
+            padding=3,
+            sequence_number=seq,
+            identifier=subject_identifier,
+            device_id=cohort_id,
+            sequence_model_name='maternalconsent',
+            sequence_app_label='eit_maternal')
         identifier.save(bypass=True)
         return subject_identifier
 
@@ -73,12 +80,12 @@ class MaternalConsent(BaseMaternalConsent):
         if not self.registered_subject:
             subject = RegisteredSubject.objects.filter(subject_identifier=self.subject_identifier)
             if subject:
-                self.registered_subject=subject[0]
+                self.registered_subject = subject[0]
                 self.save(using=using)
 
     def dispatch_container_lookup(self):
         return None
-    
+
     def get_test_code(self):
         return 'HIV'
 

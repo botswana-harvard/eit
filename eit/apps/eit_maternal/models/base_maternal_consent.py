@@ -38,7 +38,3 @@ class BaseMaternalConsent(BaseConsent):
 for field in IdentityFieldsMixin._meta.fields:
     if field.name not in [fld.name for fld in BaseMaternalConsent._meta.fields]:
         field.contribute_to_class(BaseMaternalConsent, field.name)
-
-# for field in ReviewAndUnderstandingFieldsMixin._meta.fields:
-#     if field.name not in [fld.name for fld in BaseMaternalConsent._meta.fields]:
-#         field.contribute_to_class(BaseMaternalConsent, field.name)
