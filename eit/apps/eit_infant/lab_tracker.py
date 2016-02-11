@@ -5,5 +5,5 @@ from edc.subject.lab_tracker.classes import site_lab_tracker
 
 class InfantHivLabTracker(HivLabTracker):
     subject_type = 'infant'
-    trackers = [(ResultItem, 'result_item_value', 'result_item_datetime'),]
+    trackers = [(ResultItem, 'result_item_value', 'result_item_datetime'), ]
 site_lab_tracker.register(InfantHivLabTracker)

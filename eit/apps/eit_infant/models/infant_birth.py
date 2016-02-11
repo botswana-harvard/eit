@@ -1,6 +1,4 @@
-from django.core.exceptions import ImproperlyConfigured, ValidationError
 from django.core.validators import MinValueValidator, MaxValueValidator
-from django.conf import settings
 from django.db import models, IntegrityError
 
 from datetime import datetime
@@ -8,7 +6,6 @@ from datetime import datetime
 from edc.audit.audit_trail import AuditTrail
 from edc.base.model.fields.custom.custom_fields import InitialsField
 from edc.base.model.validators import date_not_future
-from edc.base.model.validators import datetime_not_before_study_start, datetime_not_future, datetime_is_after_consent
 from edc.choices.common import GENDER_UNDETERMINED
 from edc.core.crypto_fields.fields import EncryptedFirstnameField
 from edc.subject.consent.classes import ConsentHelper
@@ -25,7 +22,6 @@ class InfantBirth(BaseRegisteredSubjectModel):
     """MP008 - Infant Birth Record """
 
     first_name = EncryptedFirstnameField(
-        #max_length = 250,
         verbose_name="Infant's first name",
         help_text="If infant name is unknown or not yet determined, use Baby + birth order + mother's last name, e.g. 'Baby1Malane'")
     initials = InitialsField()
@@ -46,7 +42,7 @@ class InfantBirth(BaseRegisteredSubjectModel):
         max_length=50,
         blank=True,
         null=True,
-        )
+    )
     objects = models.Manager()
     history = AuditTrail()
 
@@ -54,7 +50,7 @@ class InfantBirth(BaseRegisteredSubjectModel):
     def maternal_identifier(self):
         pass
 
-    def get_registration_datetime(self): 
+    def get_registration_datetime(self):
         return datetime.today()
 
     def get_consenting_subject_identifier(self):
@@ -69,7 +65,7 @@ class InfantBirth(BaseRegisteredSubjectModel):
         return '%s [%s] %s %s' % (self.registered_subject.subject_identifier, self.initials, self.dob, self.get_gender_display())
 
     def get_date_grouping_field(self):
-        #set field for date-based grouping
+        # set field for date-based grouping
         return 'dob'
 
     def safe_delete_appointment(self, code):
@@ -95,11 +91,10 @@ class InfantBirth(BaseRegisteredSubjectModel):
 
     def get_visit(self):
         return self.infant_visit
-    
+
     def get_test_code(self):
         return 'HIV'
 
     class Meta:
         app_label = "eit_infant"
         verbose_name = "Infant Birth Record"
-

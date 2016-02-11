@@ -34,9 +34,9 @@ admin.site.register(InfantRequisition, InfantRequisitionAdmin)
 
 
 class PackingListAdmin(BasePackingListAdmin):
-    fields = ('list_datetime','list_items', 'list_comment',)
+    fields = ('list_datetime', 'list_items', 'list_comment',)
     form = PackingListForm
-    requisition = [InfantRequisition, MaternalRequisition, Aliquot ]
+    requisition = [InfantRequisition, MaternalRequisition, Aliquot]
     packing_list_item_model = PackingListItem
 admin.site.register(PackingList, PackingListAdmin)
 
@@ -54,7 +54,7 @@ class AliquotAdmin(BaseModelAdmin):
                export_as_csv_action("Export as csv", fields=[], delimiter=',', exclude=['id', 'revision', 'hostname_created', 'hostname_modified', 'user_created', 'user_modified'],)]
 
     list_display = ("aliquot_identifier", 'subject_identifier', 'processing', 'related',
-                    'to_receive', 'drawn', "aliquot_type", 'is_packed', 'panel','aliquot_condition', 'created',
+                    'to_receive', 'drawn', "aliquot_type", 'is_packed', 'panel', 'aliquot_condition', 'created',
                     'user_created', 'hostname_created')
 
     search_fields = ('aliquot_identifier', 'receive__receive_identifier', 'receive__registered_subject__subject_identifier')
@@ -72,6 +72,7 @@ class AliquotTypeAdmin(BaseModelAdmin):
 
 admin.site.register(AliquotType, AliquotTypeAdmin)
 
+
 class AliquotProfileItemAdmin(BaseProfileItemAdmin):
     pass
 admin.site.register(AliquotProfileItem, AliquotProfileItemAdmin)
@@ -80,9 +81,11 @@ admin.site.register(AliquotProfileItem, AliquotProfileItemAdmin)
 class AliquotProfileItemInlineAdmin(BaseTabularInline):
     model = AliquotProfileItem
 
+
 class AliquotProfileAdmin(BaseProfileAdmin):
     inlines = [AliquotProfileItemInlineAdmin]
 admin.site.register(AliquotProfile, AliquotProfileAdmin)
+
 
 class AliquotProcessingAdmin(BaseProcessingAdmin):
 
@@ -95,13 +98,17 @@ class AliquotProcessingAdmin(BaseProcessingAdmin):
 
 admin.site.register(AliquotProcessing, AliquotProcessingAdmin)
 
+
 class ReceiveAdmin(BaseModelAdmin):
 
     date_hierarchy = 'receive_datetime'
 
-    list_display = ("receive_identifier", "infant_requisition", "maternal_requisition", "receive_datetime", "drawn_datetime", 'registered_subject', 'subject_type', 'created', 'modified', 'import_datetime')
+    list_display = (
+        "receive_identifier", "infant_requisition", "maternal_requisition", "receive_datetime", "drawn_datetime",
+        'registered_subject', 'subject_type', 'created', 'modified', 'import_datetime')
 
-    search_fields = ('registered_subject__subject_identifier', 'subject_type', "receive_identifier", "requisition_identifier",)
+    search_fields = (
+        'registered_subject__subject_identifier', 'subject_type', "receive_identifier", "requisition_identifier",)
 
     list_filter = ('created', "receive_datetime", "drawn_datetime", 'modified', 'import_datetime', )
 

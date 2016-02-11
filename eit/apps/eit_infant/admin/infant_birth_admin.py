@@ -1,9 +1,7 @@
 from django.contrib import admin
 
-from edc.subject.registration.models import RegisteredSubject
-
 from ..forms import InfantBirthForm
-from ..models import InfantBirth, InfantVisit
+from ..models import InfantBirth
 
 from .registered_subject_model_admin import RegisteredSubjectModelAdmin
 

@@ -1,7 +1,6 @@
 from django import forms
 import re
 
-from edc.subject.registration.models import RegisteredSubject
 from edc.base.form.forms import BaseModelForm
 from edc.subject.consent.forms import BaseConsentedModelForm
 
@@ -49,5 +48,3 @@ class InfantBirthForm (BaseModelForm):
 
     class Meta:
         model = InfantBirth
-
-
