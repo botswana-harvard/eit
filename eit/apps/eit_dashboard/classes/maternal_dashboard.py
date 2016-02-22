@@ -108,7 +108,8 @@ class MaternalDashboard(DashboardMixin, RegisteredSubjectDashboard):
         return PackingList
 
     def get_infants(self):
-        """Returns a list of infants identifiers asssociated with the maternal subject_identifier by querying the Birth model or RegisteredSubject."""
+        """Returns a list of infants identifiers asssociated with the maternal 
+        subject_identifier by querying the Birth model or RegisteredSubject."""
         infants = OrderedDict()
         for infant_registered_subject in RegisteredSubject.objects.filter(subject_type='infant', relative_identifier__iexact=self.subject_identifier):
             # look for infant birth record

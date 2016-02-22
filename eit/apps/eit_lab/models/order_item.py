@@ -17,20 +17,21 @@ class OrderItem(BaseSyncUuidModel):
 
     aliquot = models.ForeignKey(Aliquot)
 
-    panel = models.ForeignKey(Panel,
+    panel = models.ForeignKey(
+        Panel,
         null=True,
         blank=False,
-        )
+    )
 
     order_identifier = models.CharField(
         max_length=25,
         null=True,
         help_text='',
-        )
+    )
 
     order_datetime = models.DateTimeField(
         default=datetime.today()
-        )
+    )
 
     subject_identifier = models.CharField(
         max_length=50,
@@ -38,8 +39,6 @@ class OrderItem(BaseSyncUuidModel):
         help_text="non-user helper field to simplify search and filtering")
 
     history = AuditTrail()
-
-#     objects = OrderItemManager()
 
     def save(self, *args, **kwargs):
         self.subject_identifier = self.aliquot.receive.registered_subject.subject_identifier

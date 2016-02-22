@@ -1,5 +1,4 @@
 from django.db import models
-from django.core.exceptions import ValidationError
 from django.core.urlresolvers import reverse
 
 from edc.subject.registration.models import RegisteredSubject
@@ -16,14 +15,17 @@ from .maternal_requisition import MaternalRequisition
 
 class Aliquot(BaseAliquot):
 
-    receive = models.ForeignKey(Receive,
+    receive = models.ForeignKey(
+        Receive,
         editable=False)
 
-    aliquot_type = models.ForeignKey(AliquotType,
+    aliquot_type = models.ForeignKey(
+        AliquotType,
         verbose_name="Aliquot Type",
         null=True)
 
-    aliquot_condition = models.ForeignKey(AliquotCondition,
+    aliquot_condition = models.ForeignKey(
+        AliquotCondition,
         verbose_name="Aliquot Condition",
         null=True,
         blank=True)
@@ -71,11 +73,11 @@ class Aliquot(BaseAliquot):
         if registered_subject.subject_type.lower() == 'infant':
             requisition = InfantRequisition.objects.get(
                 requisition_identifier=self.receive.requisition_identifier
-                )
+            )
         else:
             requisition = MaternalRequisition.objects.get(
                 requisition_identifier=self.receive.requisition_identifier
-                )
+            )
         aliquot_panel = requisition.panel
         return '{}'.format(aliquot_panel)
     panel.allow_tags = True
