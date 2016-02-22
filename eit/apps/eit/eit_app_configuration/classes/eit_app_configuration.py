@@ -122,9 +122,11 @@ class EitAppConfiguration(BaseAppConfiguration):
 
     labeling_setup = {
         'label_printer': [
-            LabelPrinterTuple('ZebraT', 'fchilisa', '127.0.0.1', True), ],
+            LabelPrinterTuple('ZebraG', 'eit020', '127.0.0.1', True),
+            LabelPrinterTuple('ZebraF', 'eitprinter', '127.0.0.1', True), ],
         'client': [
-            ClientTuple(hostname='fchilisa', aliases=None, ip=None, printer_name='ZebraT', cups_hostname='fchilisa',),
+            ClientTuple(hostname='eitprinter', aliases=None, ip=None, printer_name='ZebraG', cups_hostname='eitprinter',),
+            ClientTuple(hostname='eit020', aliases=None, ip=None, printer_name='ZebraF', cups_hostname='eit020',),
         ],
         'zpl_template': [
             aliquot_label or ZplTemplateTuple(
