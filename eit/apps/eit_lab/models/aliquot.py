@@ -49,7 +49,7 @@ class Aliquot(BaseAliquot):
         return self.aliquot_identifier[:-4]
 
     def get_visit(self):
-        from apps.eit_infant.models import InfantVisit
+        from eit.apps.eit_infant.models import InfantVisit
         visit = self.get_visit_model()
         if visit == InfantVisit:
             requisition = InfantRequisition.objects.get(requisition_identifier=self.aliquot_identifier[4:-4])
