@@ -60,8 +60,8 @@ class Aliquot(BaseAliquot):
         return visit
 
     def get_visit_model(self):
-        from apps.eit_infant.models import InfantVisit
-        from apps.eit_maternal.models import MaternalVisit
+        from eit.apps.eit_infant.models import InfantVisit
+        from eit.apps.eit_maternal.models import MaternalVisit
         registered_subject = RegisteredSubject.objects.get(subject_identifier=self.subject_identifier)
         if registered_subject.subject_type.lower() == 'infant':
             return InfantVisit
