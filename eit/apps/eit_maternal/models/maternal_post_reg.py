@@ -34,25 +34,25 @@ class MaternalPostReg(BaseRegisteredSubjectModel):
     def get_registration_datetime(self):
         return self.reg_datetime
 
-    def post_save_register_infants(self, created, **kwargs):
+    def post_save_register_infants(self, created, i_indicator, **kwargs):
         """Registers infant(s) using the bhp_identifier class which allocates identifiers and
         creates registered_subject instances.
 
         Called on the post_save signal"""
         protocol = "074"
-        i_indicator = "1"
+        # i_indicator = "1"
         check = CheckDigit()
         consent = MaternalConsent.objects.get(subject_identifier=self.registered_subject.subject_identifier)
         if created:
             seq = consent.subject_identifier[6:-4]
-            check_digit = check.calculate(int(protocol + str(seq) + i_indicator), modulus=7)
+            check_digit = check.calculate(int(protocol + str(seq) + str(i_indicator)), modulus=7)
             if consent.cohort == 'antepartum':
                 prefix = 'A'
             elif consent.cohort == 'peripartum':
                 prefix = "P"
             else:
                 prefix = "C"
-            new_identifier = protocol + "-" + prefix + "-" + str(seq) + "-" + i_indicator + "-" + str(check_digit)
+            new_identifier = protocol + "-" + prefix + "-" + str(seq) + "-" + str(i_indicator) + "-" + str(check_digit)
 
             RegisteredSubject.objects.create(
                 subject_identifier=new_identifier,
