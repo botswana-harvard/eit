@@ -15,7 +15,7 @@ from lis.specimen.lab_aliquot_list.classes import AliquotTypeTuple
 from lis.specimen.lab_panel.classes import PanelTuple
 
 study_start_datetime = datetime(2014, 05, 10, 8, 00, 00)
-study_end_datetime = datetime(2018, 01, 20, 23, 49, 40)
+study_end_datetime = datetime(2019, 01, 20, 23, 49, 40)
 
 
 class EitAppConfiguration(BaseAppConfiguration):
@@ -125,8 +125,10 @@ class EitAppConfiguration(BaseAppConfiguration):
             LabelPrinterTuple('ZebraF', 'eit020', '192.168.45.247', True),
             LabelPrinterTuple('ZebraG', 'eitprinter', '192.168.1.62', True), ],
         'client': [
-            ClientTuple(hostname='eitprinter', aliases=None, ip=None, printer_name='ZebraG', cups_hostname='eitprinter',),
-            ClientTuple(hostname='eit020', aliases=None, ip=None, printer_name='ZebraF', cups_hostname='eit020',),
+            ClientTuple(hostname='eitprinter', aliases=None, ip=None,
+                        printer_name='ZebraG', cups_hostname='eitprinter',),
+            ClientTuple(hostname='eit020', aliases=None, ip=None,
+                        printer_name='ZebraF', cups_hostname='eit020',),
         ],
         'zpl_template': [
             aliquot_label or ZplTemplateTuple(
