@@ -39,7 +39,7 @@ class EitAppConfiguration(BaseAppConfiguration):
         'research_title': 'BHP074',
         'study_start_datetime': study_start_datetime,
         'minimum_age_of_consent': 16,
-        'maximum_age_of_consent': 64,
+        'maximum_age_of_consent': 100,
         'gender_of_consent': 'F',
         'subject_identifier_seed': '10000',
         'subject_identifier_prefix': '074',
